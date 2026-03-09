@@ -1,0 +1,11 @@
+torch>=2.0.0
+torchvision
+nibabel
+numpy
+torchdiffeq
+torch-geometric
+torch-scatter
+torch-sparse
+scikit-learn
+matplotlib
+tqdm
