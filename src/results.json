@@ -1,0 +1,57 @@
+{
+  "accuracy": 0.44296296296296295,
+  "per_class": {},
+  "confusion_matrix": [
+    [
+      37,
+      32,
+      31,
+      21,
+      12
+    ],
+    [
+      12,
+      94,
+      10,
+      7,
+      15
+    ],
+    [
+      21,
+      18,
+      74,
+      16,
+      7
+    ],
+    [
+      27,
+      43,
+      36,
+      17,
+      12
+    ],
+    [
+      8,
+      31,
+      15,
+      2,
+      77
+    ]
+  ],
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 100,
+    "epochs": 50,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "patience": 10,
+    "log_every": 1,
+    "cv": "kfold",
+    "n_splits": 5,
+    "ablation": null,
+    "checkpoint_dir": "checkpoints",
+    "results_file": "results.json"
+  },
+  "ablation": "full_model"
+}

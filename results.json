@@ -1,0 +1,56 @@
+{
+  "accuracy": 1.0,
+  "per_class": {},
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "config": {
+    "data_dir": "data/ACDC/training_cropped_withgt",
+    "n_patients": 2,
+    "epochs": 3,
+    "batch_size": 2,
+    "lr": 0.0001,
+    "patience": 10,
+    "log_every": 1,
+    "cv": "lopo",
+    "n_splits": 5,
+    "ablation": null,
+    "checkpoint_dir": "checkpoints",
+    "results_file": "results.json"
+  },
+  "ablation": "full_model"
+}
