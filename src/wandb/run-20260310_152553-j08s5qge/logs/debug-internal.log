@@ -1,0 +1,13 @@
+{"time":"2026-03-10T15:25:53.282917465-07:00","level":"INFO","msg":"stream: starting","core version":"0.25.0"}
+{"time":"2026-03-10T15:25:54.144376259-07:00","level":"INFO","msg":"stream: created new stream","id":"j08s5qge"}
+{"time":"2026-03-10T15:25:54.144586336-07:00","level":"INFO","msg":"handler: started","stream_id":"j08s5qge"}
+{"time":"2026-03-10T15:25:54.144821867-07:00","level":"INFO","msg":"stream: started","id":"j08s5qge"}
+{"time":"2026-03-10T15:25:54.144828549-07:00","level":"INFO","msg":"writer: started","stream_id":"j08s5qge"}
+{"time":"2026-03-10T15:25:54.144854103-07:00","level":"INFO","msg":"sender: started","stream_id":"j08s5qge"}
+{"time":"2026-03-10T15:35:00.139641012-07:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/athena_1224-ucla/cardiac-ode/j08s5qge/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2026-03-10T16:58:34.418226379-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-03-10T16:58:34.55029857-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-03-10T16:58:34.555787766-07:00","level":"INFO","msg":"stream: closing","id":"j08s5qge"}
+{"time":"2026-03-10T16:58:34.55582102-07:00","level":"INFO","msg":"handler: closed","stream_id":"j08s5qge"}
+{"time":"2026-03-10T16:58:34.555920611-07:00","level":"INFO","msg":"sender: closed","stream_id":"j08s5qge"}
+{"time":"2026-03-10T16:58:34.555935437-07:00","level":"INFO","msg":"stream: closed","id":"j08s5qge"}

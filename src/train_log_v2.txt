@@ -1,0 +1,256 @@
+nohup: ignoring input
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/amo/.netrc.
+wandb: Currently logged in as: athena_1224 (athena_1224-ucla) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 20c4l4o2
+wandb: Tracking run with wandb version 0.25.0
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260310_120943-20c4l4o2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v2_fold1
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/20c4l4o2
+Device : cuda
+Config : {'march9_dir': '/home/amo/CINEMRI/data/ACDC/March9Data', 'training_dir': '/home/amo/CINEMRI/data/ACDC/training', 'n_patients': 100, 'epochs': 100, 'batch_size': 8, 'lr': 0.0001, 'patience': 25, 'log_every': 5, 'cv': 'kfold', 'n_splits': 5, 'ablation': None, 'checkpoint_dir': 'checkpoints', 'results_file': 'results.json', 'wandb_project': 'cardiac-ode', 'wandb_run_name': 'full_v2'}
+
+Using 100 patients: patient001 … patient100
+Class distribution: {'DCM': 20, 'HCM': 20, 'MINF': 20, 'NOR': 20, 'RV': 20}
+
+Model variant: full_model
+
+Fold 1/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients...
+  [!] Skipped 4 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 539
+[ACDCSliceDataset] Scanning 20 patients...
+  [!] Skipped 1 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 136
+wandb: uploading data; updating run metadata
+wandb: updating run metadata
+wandb: uploading history steps 99-99, summary
+wandb: uploading data
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▂▂▂▂▂▂▂▂▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▆▆▆▇▇▇▇█
+wandb:             lr █████████▇▇▇▇▆▆▆▅▅▅▅▄▄▄▄▄▄▃▃▃▃▂▂▂▂▂▁▁▁▁▁
+wandb:      train/acc ▁▁▂▂▃▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇█████████████████
+wandb: train/cls_loss █▇▇▆▆▅▅▅▅▅▄▄▄▄▄▃▂▂▂▂▂▂▂▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     train/loss █▇▇▆▆▆▅▅▅▄▄▄▄▄▃▃▂▂▂▂▂▂▂▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁
+wandb: train/reg_loss ▅▅▅▆▇█▆▇▇▇▆██▆█▆▇▅▅▄▅▅▅▄▅▃▃▃▁▂▂▃▂▁▂▂▂▂▁▂
+wandb:        val/acc ▂▁▄▄█▆▇▇▄▇▇▇▅▅▅▇▆▄▇▆▇█▇▅▆▆█▇▆█▇▇▇█▇█████
+wandb:       val/loss ▁▁▁▂▂▁▁▁▁▁▂▂▂▃▂▄▃▄▄▄▆▇▇▇▇▇▇█████████████
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.55
+wandb:          epoch 100
+wandb:             lr 0
+wandb:      train/acc 0.95733
+wandb: train/cls_loss 0.13252
+wandb:     train/loss 0.16708
+wandb: train/reg_loss 0.34541
+wandb:        val/acc 0.55
+wandb:       val/loss 4.92739
+wandb: 
+wandb: 🚀 View run full_v2_fold1 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/20c4l4o2
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260310_120943-20c4l4o2/logs
+wandb: setting up run kus9hgp8
+wandb: Tracking run with wandb version 0.25.0
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260310_134202-kus9hgp8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v2_fold2
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/kus9hgp8
+  Best val acc: 55.0%
+
+Fold 2/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients...
+  [!] Skipped 2 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 540
+[ACDCSliceDataset] Scanning 20 patients...
+  [!] Skipped 3 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 135
+wandb: updating run metadata
+wandb: uploading history steps 99-99, summary; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading history steps 99-99, summary
+wandb: uploading data
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▂▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇██
+wandb:             lr ████████▇▇▇▆▆▆▆▆▆▅▅▅▄▄▄▄▄▃▃▃▃▃▂▂▂▂▁▁▁▁▁▁
+wandb:      train/acc ▁▂▃▄▄▅▅▅▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇██████████
+wandb: train/cls_loss ██▇▆▆▅▅▅▅▅▄▄▄▄▄▄▃▃▃▃▃▃▃▃▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁
+wandb:     train/loss █▇▇▇▆▆▅▅▅▅▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: train/reg_loss ▁▁▅▅▆▇▆█▆▇▇▆▆▅▅▆▆▆▅▆▃▄▅▄▅▂▄▄▃▄▄▃▃▄▄▃▄▄▃▄
+wandb:        val/acc ▁▃▂▁█▆▄▄▄▆▆▆█▆▆▆▆▇▆▆▆▆▇▇█▇▇▇▇█▇██▇▇▇▇▇▇▇
+wandb:       val/loss ▁▁▁▁▁▂▂▂▂▂▂▁▂▃▃▃▃▄▃▄▄▄▆▅▆▆▆▇▇▇██████████
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.55
+wandb:          epoch 100
+wandb:             lr 0
+wandb:      train/acc 0.93704
+wandb: train/cls_loss 0.19871
+wandb:     train/loss 0.23536
+wandb: train/reg_loss 0.36614
+wandb:        val/acc 0.45
+wandb:       val/loss 3.47804
+wandb: 
+wandb: 🚀 View run full_v2_fold2 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/kus9hgp8
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260310_134202-kus9hgp8/logs
+wandb: setting up run j08s5qge
+wandb: Tracking run with wandb version 0.25.0
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260310_152553-j08s5qge
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v2_fold3
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/j08s5qge
+  Best val acc: 55.0%
+
+Fold 3/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients...
+  [!] Skipped 5 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 542
+[ACDCSliceDataset] Scanning 20 patients...
+[ACDCSliceDataset] Total valid slices: 133
+wandb: updating run metadata
+wandb: uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇███
+wandb:             lr █████▇▇▇▇▆▆▆▆▆▆▅▅▅▅▅▄▄▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
+wandb:      train/acc ▁▁▂▂▂▃▄▄▅▄▅▅▅▆▆▇▇▇▇▇█▇██████████████████
+wandb: train/cls_loss ██▇▇▇▆▆▅▅▅▄▄▃▃▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     train/loss ██▇▇▇▇▆▆▅▅▅▅▄▄▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: train/reg_loss ▃▅▇▆▆▆▆▆█▆▇▇▇▇▇▇█▇█▇▇▆▅█▅▄▆▅▆▅▄▄▄▄▁▃▃▃▄▄
+wandb:        val/acc ▂▅▇▂▂▄▁█▂▄▂▄▂▂▄▂▂▂▂▄▄▄▄▄▄▄▄▂▂▂▂▂▂▂▂▂▂▂▂▂
+wandb:       val/loss ▁▁▁▁▁▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▅▅▆▆▆▆▇▇▇▇████████
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.5
+wandb:          epoch 100
+wandb:             lr 0
+wandb:      train/acc 0.99815
+wandb: train/cls_loss 0.00565
+wandb:     train/loss 0.04019
+wandb: train/reg_loss 0.34533
+wandb:        val/acc 0.3
+wandb:       val/loss 10.22303
+wandb: 
+wandb: 🚀 View run full_v2_fold3 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/j08s5qge
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260310_152553-j08s5qge/logs
+wandb: setting up run d1p7ulrn
+wandb: Tracking run with wandb version 0.25.0
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260310_165838-d1p7ulrn
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v2_fold4
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/d1p7ulrn
+  Best val acc: 50.0%
+
+Fold 4/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients...
+  [!] Skipped 4 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 542
+[ACDCSliceDataset] Scanning 20 patients...
+  [!] Skipped 1 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 133
+wandb: updating run metadata
+wandb: uploading history steps 99-99, summary
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▁▁▂▂▂▂▂▃▃▄▄▄▄▄▄▄▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇████
+wandb:             lr █████▇▇▇▇▇▆▆▆▆▆▅▅▅▅▄▄▄▃▃▃▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁
+wandb:      train/acc ▁▁▂▃▃▄▅▄▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇██████████████
+wandb: train/cls_loss ██▇▇▆▅▅▅▅▄▄▄▄▄▃▃▃▃▃▂▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:     train/loss ██▇▇▆▅▅▅▅▄▄▄▄▃▃▃▃▃▂▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁
+wandb: train/reg_loss ▁▄▆▄▅▅▆▆▆▇█▇▇▇▇█▇█▇▇▇▇▇▆▅▇▆▆▅▅▅▄▄▄▄▄▃▄▃▃
+wandb:        val/acc ▁▄█▅██▄▆▄▄▃▄▆▂▅▃▄▇▄▃▅▄▅▅▃▄▅▅▆▄▅▆▄▆▅▆▆▆▆▆
+wandb:       val/loss ▂▁▁▁▁▂▂▂▂▂▂▂▂▂▃▃▃▃▃▃▄▄▅▅▅▆▆▆▆▇▇▇▇▇▇█████
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.6
+wandb:          epoch 100
+wandb:             lr 0
+wandb:      train/acc 0.98155
+wandb: train/cls_loss 0.09712
+wandb:     train/loss 0.13163
+wandb: train/reg_loss 0.34426
+wandb:        val/acc 0.5
+wandb:       val/loss 5.14875
+wandb: 
+wandb: 🚀 View run full_v2_fold4 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/d1p7ulrn
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260310_165838-d1p7ulrn/logs
+wandb: setting up run 8kwc423o
+wandb: Tracking run with wandb version 0.25.0
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260310_183141-8kwc423o
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v2_fold5
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/8kwc423o
+  Best val acc: 60.0%
+
+Fold 5/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients...
+  [!] Skipped 5 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 537
+[ACDCSliceDataset] Scanning 20 patients...
+[ACDCSliceDataset] Total valid slices: 138
+wandb: updating run metadata
+wandb: uploading history steps 99-99, summary
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▁▁▂▂▂▂▃▃▃▃▃▃▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇█
+wandb:             lr ████████▇▇▇▇▇▆▆▆▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁
+wandb:      train/acc ▁▂▄▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇███████████████
+wandb: train/cls_loss █▇▇▇▆▆▆▆▆▅▅▅▅▅▅▄▄▄▄▄▄▃▃▃▃▂▃▂▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:     train/loss █▇▇▇▇▇▆▆▆▆▆▅▅▅▅▅▅▅▄▄▄▄▄▄▃▃▃▃▂▂▂▂▂▁▁▁▁▁▁▁
+wandb: train/reg_loss ▂▁▃▄▄▄▅▅▅▄▄▄▅▆▅▇▄▅▅▅▇▆▅▆▆▇▆▇▇▇█▆▆▇▆▆▇▆▆▆
+wandb:        val/acc ▁▅▂▄▆▇▇▅▆▇▇▇▆█▅▃▆▇▇▆▇▄▇▅▄▆▆▆▄▇▇▆▇█▇█▇▇██
+wandb:       val/loss ▂▁▁▁▁▁▁▁▁▁▁▁▁▁▂▂▂▂▃▃▄▄▄▄▄▅▅▆▆▆▇▇▇▇▇█████
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.65
+wandb:          epoch 100
+wandb:             lr 0
+wandb:      train/acc 0.97393
+wandb: train/cls_loss 0.12767
+wandb:     train/loss 0.16415
+wandb: train/reg_loss 0.36421
+wandb:        val/acc 0.55
+wandb:       val/loss 4.2761
+wandb: 
+wandb: 🚀 View run full_v2_fold5 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/8kwc423o
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260310_183141-8kwc423o/logs
+  Best val acc: 65.0%
+
+============================================================
+  LOPO CV Final Results
+============================================================
+  Overall accuracy: 57.0%  (57/100)
+
+  Per-class accuracy:
+    NOR   : 40.0%  (20 patients)
+    DCM   : 55.0%  (20 patients)
+    HCM   : 65.0%  (20 patients)
+    MINF  : 50.0%  (20 patients)
+    RV    : 75.0%  (20 patients)
+
+  Confusion matrix (rows=true, cols=pred):
+         NOR    DCM    HCM   MINF     RV
+  NOR  :     8      2      4      4      2
+  DCM  :     2     11      2      4      1
+  HCM  :     4      1     13      2      0
+  MINF :     0      3      4     10      3
+  RV   :     2      2      0      1     15
+============================================================
+
+Results saved to results.json

@@ -41,6 +41,12 @@ from sklearn.metrics import classification_report, confusion_matrix
 from collections import defaultdict
 from typing import List, Dict, Tuple, Optional
 
+try:
+    import wandb
+    WANDB_AVAILABLE = True
+except ImportError:
+    WANDB_AVAILABLE = False
+
 # Add src/ to path so imports work regardless of working directory
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -234,11 +240,26 @@ def val_epoch(
     loader: DataLoader,
     device: torch.device,
 ) -> Dict:
+    """
+    Validation with patient-level aggregation.
+
+    Slices from the same patient share a label but have different motion
+    signals (apex/mid/base). Evaluating at slice level inflates N and
+    gives misleading accuracy because apical/basal slices with little
+    myocardium tend to predict the majority class regardless.
+
+    Fix: accumulate raw logits per patient_id across all batches, then
+    mean-pool them -> one prediction per patient. Accuracy is computed
+    over patients, not slices.
+    """
     model.eval()
     total_loss = 0.0
-    all_preds  = []
-    all_labels = []
     n_batches  = 0
+
+    # patient_id -> accumulated logits (list of (n_classes,) tensors)
+    patient_logits: Dict[str, list] = defaultdict(list)
+    # patient_id -> ground-truth label (int)
+    patient_label_map: Dict[str, int] = {}
 
     for batch in loader:
         frames = batch["frames"].to(device)
@@ -247,16 +268,29 @@ def val_epoch(
         labels = batch["label"].to(device)
 
         out = model(frames, masks, times, labels)
-
         total_loss += out.total_loss.item()
-        preds = out.logits.argmax(dim=1)
-        all_preds.extend(preds.cpu().tolist())
-        all_labels.extend(labels.cpu().tolist())
-        n_batches += 1
+        n_batches  += 1
+
+        # logits: (B, n_classes) -- detach & move to CPU to save GPU memory
+        logits_cpu = out.logits.detach().cpu()
+
+        for i, meta in enumerate(batch["meta"]):
+            pid = meta["patient_id"]
+            patient_logits[pid].append(logits_cpu[i])        # (n_classes,)
+            patient_label_map[pid] = labels[i].item()
+
+    # Aggregate: mean-pool logits across slices -> one prediction per patient
+    all_preds:  List[int] = []
+    all_labels: List[int] = []
+
+    for pid, logit_list in patient_logits.items():
+        mean_logit = torch.stack(logit_list, dim=0).mean(dim=0)  # (n_classes,)
+        all_preds.append(int(mean_logit.argmax().item()))
+        all_labels.append(patient_label_map[pid])
 
     metrics = compute_metrics(all_preds, all_labels, n_classes=5)
     return {
-        "total_loss": total_loss / n_batches,
+        "total_loss": total_loss / max(n_batches, 1),
         "accuracy":   metrics["accuracy"],
         "per_class":  metrics["per_class"],
         "preds":      all_preds,
@@ -330,6 +364,18 @@ def lopo_cv(
             optimizer, T_max=args.epochs, eta_min=1e-6
         )
 
+        # ── W&B: one run per fold ─────────────────────────────────────────────
+        use_wandb = WANDB_AVAILABLE and getattr(args, "wandb_project", None)
+        if use_wandb:
+            run_name = f"{args.wandb_run_name or 'lopo'}_fold{fold_idx:02d}"
+            wandb.init(
+                project  = args.wandb_project,
+                name     = run_name,
+                config   = vars(args),
+                reinit   = True,
+                tags     = ["lopo", args.ablation or "full_model"],
+            )
+
         best_val_acc  = 0.0
         best_val_pred = None
         patience_ctr  = 0
@@ -350,6 +396,19 @@ def lopo_cv(
                     f"{elapsed:.1f}s"
                 )
 
+            # ── W&B: log every epoch ──────────────────────────────────────────
+            if use_wandb:
+                wandb.log({
+                    "epoch":          epoch,
+                    "train/loss":     train_metrics["total_loss"],
+                    "train/cls_loss": train_metrics["cls_loss"],
+                    "train/reg_loss": train_metrics["reg_loss"],
+                    "train/acc":      train_metrics["accuracy"],
+                    "val/acc":        val_metrics["accuracy"],
+                    "val/loss":       val_metrics["total_loss"],
+                    "lr": scheduler.get_last_lr()[0],
+                })
+
             # Track best
             if val_metrics["accuracy"] > best_val_acc:
                 best_val_acc  = val_metrics["accuracy"]
@@ -364,6 +423,8 @@ def lopo_cv(
                     "held_out":   held_out,
                     "ablation":   args.ablation,
                 }, ckpt_path)
+                if use_wandb:
+                    wandb.summary["best_val_acc"] = best_val_acc
             else:
                 patience_ctr += 1
 
@@ -371,6 +432,9 @@ def lopo_cv(
             if patience_ctr >= args.patience:
                 print(f"  Early stopping at epoch {epoch} (patience={args.patience})")
                 break
+
+        if use_wandb:
+            wandb.finish()
 
         fold_result = {
             "fold":      fold_idx,
@@ -461,15 +525,45 @@ def stratified_kfold(
         optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-5)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
 
+        # ── W&B: one run per fold ─────────────────────────────────────────────
+        use_wandb = WANDB_AVAILABLE and getattr(args, "wandb_project", None)
+        if use_wandb:
+            run_name = f"{args.wandb_run_name or 'kfold'}_fold{fold_idx+1}"
+            wandb.init(
+                project  = args.wandb_project,
+                name     = run_name,
+                config   = vars(args),
+                reinit   = True,
+                tags     = ["kfold", args.ablation or "full_model"],
+            )
+
         best_acc = 0.0
         for epoch in range(1, args.epochs + 1):
-            train_epoch(model, train_loader, optimizer, device)
-            val_m = val_epoch(model, val_loader, device)
+            train_m = train_epoch(model, train_loader, optimizer, device)
+            val_m   = val_epoch(model, val_loader, device)
             scheduler.step()
+
+            if use_wandb:
+                wandb.log({
+                    "epoch":          epoch,
+                    "train/loss":     train_m["total_loss"],
+                    "train/cls_loss": train_m["cls_loss"],
+                    "train/reg_loss": train_m["reg_loss"],
+                    "train/acc":      train_m["accuracy"],
+                    "val/acc":        val_m["accuracy"],
+                    "val/loss":       val_m["total_loss"],
+                    "lr": scheduler.get_last_lr()[0],
+                })
+
             if val_m["accuracy"] > best_acc:
-                best_acc = val_m["accuracy"]
+                best_acc    = val_m["accuracy"]
                 best_preds  = val_m["preds"]
                 best_labels = val_m["labels"]
+                if use_wandb:
+                    wandb.summary["best_val_acc"] = best_acc
+
+        if use_wandb:
+            wandb.finish()
 
         all_preds.extend(best_preds)
         all_labels.extend(best_labels)
@@ -520,6 +614,12 @@ def parse_args():
                    help="Directory to save model checkpoints")
     p.add_argument("--results_file",   type=str, default="results.json",
                    help="Path to save results JSON")
+
+    # Weights & Biases
+    p.add_argument("--wandb_project",  type=str, default=None,
+                   help="W&B project name — omit to disable W&B logging")
+    p.add_argument("--wandb_run_name", type=str, default=None,
+                   help="W&B run name prefix (fold number appended automatically)")
 
     return p.parse_args()
 

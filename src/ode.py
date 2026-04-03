@@ -208,13 +208,13 @@ class SequenceEncoder(nn.Module):
     Takes the sequence of per-frame graph embeddings and computes z_0,
     the initial ODE state.
 
-    We use the FIRST frame embedding directly as z_0 (simplest option).
-    An alternative is a learned projection, but for 64-dim embeddings
-    this is unnecessary — the ODE function learns the rest.
+    Uses a single-layer GRU to read the full embedding sequence
+    (B, N_frames, d_z) and returns the final hidden state as z_0.
+    This means the ODE initial condition already summarises the ENTIRE
+    observed contraction trajectory, not just the first frame pair.
 
-    Also handles the case where different samples in a batch have
-    different N_frames (due to padding in the collate function) by
-    using only the first frame for z_0.
+    Previous implementation used only embeddings[:, 0, :], which
+    discarded all motion information after the first inter-frame step.
 
     Args:
         d_z : latent dimension (must match graph encoder out_dim)
@@ -222,9 +222,14 @@ class SequenceEncoder(nn.Module):
 
     def __init__(self, d_z: int = 64):
         super().__init__()
-        # Optional: learned projection from graph embed to ODE latent space
-        # Identity if d_graph == d_z (which is our case)
-        self.proj = nn.Identity()
+        # GRU reads the full (B, N_frames, d_z) sequence.
+        # batch_first=True so input/output are (B, T, d_z).
+        self.gru = nn.GRU(
+            input_size  = d_z,
+            hidden_size = d_z,
+            num_layers  = 1,
+            batch_first = True,
+        )
 
     def forward(self, embeddings: torch.Tensor) -> torch.Tensor:
         """
@@ -232,10 +237,12 @@ class SequenceEncoder(nn.Module):
             embeddings : (B, N_frames, d_z) — graph embeddings per time step
 
         Returns:
-            z0 : (B, d_z) — initial ODE state (from first frame)
+            z0 : (B, d_z) — initial ODE state summarising full sequence
         """
-        z0 = embeddings[:, 0, :]  # (B, d_z) — first frame embedding
-        return self.proj(z0)
+        # _, h_n shape: (num_layers=1, B, d_z)
+        _, h_n = self.gru(embeddings)
+        z0 = h_n.squeeze(0)   # (B, d_z)
+        return z0
 
 
 # ── Classifier head ──────────────────────────────────────────────────────────
