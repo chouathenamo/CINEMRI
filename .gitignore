@@ -23,4 +23,6 @@ Icon[
 .AppleDesktop
 Network Trash Folder
 Temporary Items
-.apdisk__pycache__/
+.apdisk
+
+__pycache__/
