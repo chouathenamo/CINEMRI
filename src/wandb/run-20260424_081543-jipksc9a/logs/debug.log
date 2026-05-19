@@ -1,0 +1,16 @@
+2026-04-24 08:15:43,524 INFO    MainThread:3460276 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /home/amo/CINEMRI/src/wandb/run-20260424_081543-jipksc9a/logs/debug.log
+2026-04-24 08:15:43,524 INFO    MainThread:3460276 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /home/amo/CINEMRI/src/wandb/run-20260424_081543-jipksc9a/logs/debug-internal.log
+2026-04-24 08:15:43,524 INFO    MainThread:3460276 [wandb_init.py:init():844] calling init triggers
+2026-04-24 08:15:43,524 INFO    MainThread:3460276 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'march9_dir': '/home/amo/CINEMRI/data/ACDC/March9Data', 'training_dir': '/home/amo/CINEMRI/data/ACDC/training', 'n_patients': 100, 'epochs': 120, 'batch_size': 8, 'lr': 0.0001, 'patience': 30, 'freeze_reg_epochs': 20, 'log_every': 5, 'cv': 'kfold', 'n_splits': 5, 'ablation': None, 'checkpoint_dir': 'checkpoints', 'results_file': 'results_skip_conn_p30.json', 'wandb_project': 'cardiac-ode', 'wandb_run_name': 'skip_conn_p30', '_wandb': {}}
+2026-04-24 08:15:43,524 INFO    MainThread:3460276 [wandb_init.py:init():892] starting backend
+2026-04-24 08:15:43,524 INFO    MainThread:3460276 [wandb_init.py:init():895] sending inform_init request
+2026-04-24 08:15:43,526 INFO    MainThread:3460276 [wandb_init.py:init():903] backend started and connected
+2026-04-24 08:15:43,528 INFO    MainThread:3460276 [wandb_init.py:init():973] updated telemetry
+2026-04-24 08:15:43,534 INFO    MainThread:3460276 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-04-24 08:15:44,765 INFO    MainThread:3460276 [wandb_init.py:init():1042] starting run threads in backend
+2026-04-24 08:15:44,897 INFO    MainThread:3460276 [wandb_run.py:_console_start():2524] atexit reg
+2026-04-24 08:15:44,897 INFO    MainThread:3460276 [wandb_run.py:_redirect():2373] redirect: wrap_raw
+2026-04-24 08:15:44,897 INFO    MainThread:3460276 [wandb_run.py:_redirect():2442] Wrapping output streams.
+2026-04-24 08:15:44,897 INFO    MainThread:3460276 [wandb_run.py:_redirect():2465] Redirects installed.
+2026-04-24 08:15:44,899 INFO    MainThread:3460276 [wandb_init.py:init():1082] run started, returning control to user process

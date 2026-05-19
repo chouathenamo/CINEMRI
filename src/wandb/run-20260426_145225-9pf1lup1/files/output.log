@@ -1,0 +1,8 @@
+  [Fold 1 | Ep   1/120] loss=0.757 train_acc=40.6% val_acc=25.0% NOR_recall=100.0% DIS_recall=6.2% val_loss=0.804 pat=0/30 (64s)
+  [Fold 1 | Ep   2/120] loss=0.758 train_acc=36.5% val_acc=25.0% NOR_recall=100.0% DIS_recall=6.2% val_loss=0.813 pat=0/30 (62s)
+  [Fold 1 | Ep   3/120] loss=0.763 train_acc=32.1% val_acc=25.0% NOR_recall=100.0% DIS_recall=6.2% val_loss=0.800 pat=1/30 (64s)
+  [Fold 1 | Ep   4/120] loss=0.758 train_acc=34.3% val_acc=25.0% NOR_recall=100.0% DIS_recall=6.2% val_loss=0.797 pat=0/30 (62s)
+  [Fold 1 | Ep   5/120] loss=0.749 train_acc=38.4% val_acc=25.0% NOR_recall=100.0% DIS_recall=6.2% val_loss=0.790 pat=0/30 (48s)
+  [Fold 1 | Ep   6/120] loss=0.744 train_acc=33.8% val_acc=20.0% NOR_recall=100.0% DIS_recall=0.0% val_loss=0.808 pat=0/30 (36s)
+  [Fold 1 | Ep   7/120] loss=0.745 train_acc=40.6% val_acc=30.0% NOR_recall=100.0% DIS_recall=12.5% val_loss=0.786 pat=1/30 (36s)
+  [Fold 1 | Ep   8/120] loss=0.753 train_acc=36.9% val_acc=25.0% NOR_recall=100.0% DIS_recall=6.2% val_loss=0.790 pat=0/30 (52s)

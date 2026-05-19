@@ -1,0 +1,130 @@
+{
+  "condition": "no_graph",
+  "accuracy": 0.67,
+  "acc_4class": 0.7948717948717948,
+  "macro_f1": 0.6484501944076412,
+  "weighted_f1": 0.6484501944076412,
+  "confusion_matrix": [
+    [
+      5,
+      0,
+      5,
+      4,
+      6
+    ],
+    [
+      0,
+      13,
+      1,
+      6,
+      0
+    ],
+    [
+      1,
+      0,
+      13,
+      4,
+      2
+    ],
+    [
+      1,
+      2,
+      0,
+      17,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      19
+    ]
+  ],
+  "per_class": {
+    "NOR": {
+      "precision": 0.7142857142857143,
+      "recall": 0.25,
+      "f1": 0.37037037037037035,
+      "support": 20
+    },
+    "DCM": {
+      "precision": 0.8666666666666667,
+      "recall": 0.65,
+      "f1": 0.7428571428571429,
+      "support": 20
+    },
+    "HCM": {
+      "precision": 0.6842105263157895,
+      "recall": 0.65,
+      "f1": 0.6666666666666667,
+      "support": 20
+    },
+    "MINF": {
+      "precision": 0.53125,
+      "recall": 0.85,
+      "f1": 0.6538461538461537,
+      "support": 20
+    },
+    "RV": {
+      "precision": 0.7037037037037037,
+      "recall": 0.95,
+      "f1": 0.8085106382978724,
+      "support": 20
+    }
+  },
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 100,
+    "epochs": 120,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "patience": 30,
+    "freeze_reg_epochs": 20,
+    "n_splits": 5,
+    "wandb_project": "cardiac-ode",
+    "results_file": "results_abl_no_graph.json",
+    "resume": false
+  },
+  "f1_metrics": {
+    "accuracy": 0.67,
+    "acc_4class": 0.7948717948717948,
+    "macro_f1": 0.6484501944076412,
+    "weighted_f1": 0.6484501944076412,
+    "macro_precision": 0.7000233221943748,
+    "macro_recall": 0.6699999999999999,
+    "per_class": {
+      "NOR": {
+        "precision": 0.7142857142857143,
+        "recall": 0.25,
+        "f1": 0.37037037037037035,
+        "support": 20
+      },
+      "DCM": {
+        "precision": 0.8666666666666667,
+        "recall": 0.65,
+        "f1": 0.7428571428571429,
+        "support": 20
+      },
+      "HCM": {
+        "precision": 0.6842105263157895,
+        "recall": 0.65,
+        "f1": 0.6666666666666667,
+        "support": 20
+      },
+      "MINF": {
+        "precision": 0.53125,
+        "recall": 0.85,
+        "f1": 0.6538461538461537,
+        "support": 20
+      },
+      "RV": {
+        "precision": 0.7037037037037037,
+        "recall": 0.95,
+        "f1": 0.8085106382978724,
+        "support": 20
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+2026-04-06 08:31:10,094 INFO    MainThread:3077531 [wandb_setup.py:_flush():81] Current SDK version is 0.25.1
+2026-04-06 08:31:10,094 INFO    MainThread:3077531 [wandb_setup.py:_flush():81] Configure stats pid to 3077531
+2026-04-06 08:31:10,094 INFO    MainThread:3077531 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-06 08:31:10,095 INFO    MainThread:3077531 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /home/amo/CINEMRI/wandb/run-20260406_083110-1pt8yi7e/logs/debug.log
+2026-04-06 08:31:10,095 INFO    MainThread:3077531 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /home/amo/CINEMRI/wandb/run-20260406_083110-1pt8yi7e/logs/debug-internal.log
+2026-04-06 08:31:10,095 INFO    MainThread:3077531 [wandb_init.py:init():844] calling init triggers
+2026-04-06 08:31:10,095 INFO    MainThread:3077531 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'march9_dir': '/home/amo/CINEMRI/data/ACDC/March9Data', 'training_dir': '/home/amo/CINEMRI/data/ACDC/training', 'n_patients': 100, 'epochs': 100, 'batch_size': 8, 'lr': 0.0001, 'patience': 25, 'log_every': 5, 'cv': 'kfold', 'n_splits': 5, 'ablation': 'no_graph', 'checkpoint_dir': 'checkpoints', 'results_file': 'results_ablation_no_graph.json', 'wandb_project': 'cardiac-ode', 'wandb_run_name': 'ablation_no_graph', '_wandb': {}}
+2026-04-06 08:31:10,095 INFO    MainThread:3077531 [wandb_init.py:init():892] starting backend
+2026-04-06 08:31:10,341 INFO    MainThread:3077531 [wandb_init.py:init():895] sending inform_init request
+2026-04-06 08:31:10,348 INFO    MainThread:3077531 [wandb_init.py:init():903] backend started and connected
+2026-04-06 08:31:10,376 INFO    MainThread:3077531 [wandb_init.py:init():973] updated telemetry
+2026-04-06 08:31:10,385 INFO    MainThread:3077531 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout

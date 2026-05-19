@@ -1,0 +1,100 @@
+{
+  "accuracy": 0.61,
+  "per_class": {},
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      8,
+      6,
+      5
+    ],
+    [
+      0,
+      12,
+      0,
+      8,
+      0
+    ],
+    [
+      0,
+      0,
+      13,
+      4,
+      3
+    ],
+    [
+      0,
+      2,
+      0,
+      17,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      2,
+      18
+    ]
+  ],
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 100,
+    "epochs": 120,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "patience": 15,
+    "freeze_reg_epochs": 20,
+    "log_every": 5,
+    "cv": "kfold",
+    "n_splits": 5,
+    "ablation": null,
+    "checkpoint_dir": "checkpoints",
+    "results_file": "results_full_v3.json",
+    "wandb_project": "cardiac-ode",
+    "wandb_run_name": "full_v3"
+  },
+  "ablation": "full_model_v3",
+  "f1_metrics": {
+    "accuracy": 0.61,
+    "acc_4class": 0.75,
+    "macro_f1": 0.5595430929042745,
+    "weighted_f1": 0.5595430929042745,
+    "macro_precision": 0.7204633204633205,
+    "macro_recall": 0.61,
+    "per_class": {
+      "NOR": {
+        "precision": 1.0,
+        "recall": 0.05,
+        "f1": 0.09523809523809523,
+        "support": 20
+      },
+      "DCM": {
+        "precision": 0.8571428571428571,
+        "recall": 0.6,
+        "f1": 0.7058823529411764,
+        "support": 20
+      },
+      "HCM": {
+        "precision": 0.6190476190476191,
+        "recall": 0.65,
+        "f1": 0.6341463414634146,
+        "support": 20
+      },
+      "MINF": {
+        "precision": 0.4594594594594595,
+        "recall": 0.85,
+        "f1": 0.5964912280701754,
+        "support": 20
+      },
+      "RV": {
+        "precision": 0.6666666666666666,
+        "recall": 0.9,
+        "f1": 0.7659574468085106,
+        "support": 20
+      }
+    }
+  }
+}

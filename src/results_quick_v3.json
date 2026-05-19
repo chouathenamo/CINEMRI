@@ -1,0 +1,60 @@
+{
+  "accuracy": 0.8,
+  "per_class": {},
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      20,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      20,
+      0,
+      0
+    ],
+    [
+      0,
+      6,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 50,
+    "epochs": 20,
+    "batch_size": 4,
+    "lr": 0.0001,
+    "patience": 8,
+    "freeze_reg_epochs": 5,
+    "log_every": 5,
+    "cv": "kfold",
+    "n_splits": 3,
+    "ablation": null,
+    "checkpoint_dir": "checkpoints",
+    "results_file": "results_quick_v3.json",
+    "wandb_project": null,
+    "wandb_run_name": null
+  },
+  "ablation": "full_model_v3"
+}

@@ -1,0 +1,1 @@
+{"val/acc":0.95,"_runtime":4351,"lr":3.52036587784401e-05,"val/loss":0.010255963687942474,"train/loss":0.023198741611421984,"val/nor_recall":1,"epoch":72,"val/dis_recall":0.9375,"_wandb":{"runtime":4351},"_timestamp":1.7779598820447998e+09,"train/acc":0.7952029520295203,"_step":71,"patience":29,"val/balanced_acc":0.96875}

@@ -1,0 +1,128 @@
+nohup: ignoring input
+Device : cuda
+Config : {'march9_dir': '/home/amo/CINEMRI/data/ACDC/March9Data', 'training_dir': '/home/amo/CINEMRI/data/ACDC/training', 'n_patients': 50, 'epochs': 20, 'batch_size': 4, 'lr': 0.0001, 'patience': 8, 'freeze_reg_epochs': 5, 'log_every': 5, 'cv': 'kfold', 'n_splits': 3, 'ablation': None, 'checkpoint_dir': 'checkpoints', 'results_file': 'results_quick_v3.json', 'wandb_project': None, 'wandb_run_name': None}
+
+Using 50 patients: patient001 … patient050
+Class distribution: {'DCM': 20, 'HCM': 20, 'MINF': 10}
+
+Model variant: full_model (v3 — with clinical features)
+Clinical features: 8 scalars (EF, volumes, wall, RV/LV, H, W)
+Regularisation: weight_decay=5e-4, label_smooth=0.1, GAT/ODE dropout=0.3/0.5
+Augmentation: flip + rotate±15° + intensity jitter (train only)
+Early stopping: patience=8 epochs on val_loss
+Reg freeze: first 5 epochs
+
+
+Fold 1/3: 33 train / 17 val patients
+[ACDCSliceDataset] Scanning 33 patients (augment=True)...
+  [!] Skipped 2 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 224
+[ACDCSliceDataset] Scanning 17 patients (augment=False)...
+  [!] Skipped 3 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 116
+  Registration net frozen for first 5 epochs
+  [Fold 1 | Ep   1/20] loss=1.476 train_acc=33.0% val_acc=41.2% val_loss=1.316 (14s)
+  [Fold 1 | Ep   2/20] loss=1.281 train_acc=40.2% val_acc=41.2% val_loss=1.233 (10s)
+  [Fold 1 | Ep   3/20] loss=1.267 train_acc=43.3% val_acc=70.6% val_loss=1.224 (11s)
+  [Fold 1 | Ep   4/20] loss=1.281 train_acc=37.1% val_acc=64.7% val_loss=1.224 (12s)
+  [Fold 1 | Ep   5/20] loss=1.265 train_acc=40.6% val_acc=82.4% val_loss=1.221 (11s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 1 | Ep   6/20] loss=1.256 train_acc=46.0% val_acc=70.6% val_loss=1.215 (16s)
+  [Fold 1 | Ep   7/20] loss=1.254 train_acc=46.0% val_acc=76.5% val_loss=1.210 (15s)
+  [Fold 1 | Ep   8/20] loss=1.241 train_acc=48.7% val_acc=82.4% val_loss=1.203 (12s)
+  [Fold 1 | Ep   9/20] loss=1.226 train_acc=54.5% val_acc=70.6% val_loss=1.197 (13s)
+  [Fold 1 | Ep  10/20] loss=1.212 train_acc=58.0% val_acc=76.5% val_loss=1.188 (14s)
+  [Fold 1 | Ep  11/20] loss=1.165 train_acc=67.9% val_acc=76.5% val_loss=1.162 (14s)
+  [Fold 1 | Ep  12/20] loss=1.125 train_acc=71.4% val_acc=70.6% val_loss=1.137 (15s)
+  [Fold 1 | Ep  13/20] loss=1.101 train_acc=70.5% val_acc=76.5% val_loss=1.094 (14s)
+  [Fold 1 | Ep  14/20] loss=1.044 train_acc=75.4% val_acc=64.7% val_loss=1.100 (14s)
+  [Fold 1 | Ep  15/20] loss=1.023 train_acc=75.9% val_acc=52.9% val_loss=1.156 (14s)
+  [Fold 1 | Ep  16/20] loss=0.987 train_acc=76.8% val_acc=64.7% val_loss=1.092 (13s)
+  [Fold 1 | Ep  17/20] loss=0.986 train_acc=75.4% val_acc=64.7% val_loss=1.097 (14s)
+  [Fold 1 | Ep  18/20] loss=0.943 train_acc=77.7% val_acc=64.7% val_loss=1.093 (13s)
+  [Fold 1 | Ep  19/20] loss=0.959 train_acc=77.7% val_acc=64.7% val_loss=1.094 (16s)
+  [Fold 1 | Ep  20/20] loss=0.941 train_acc=76.8% val_acc=64.7% val_loss=1.107 (32s)
+  Best val acc: 82.4%
+
+Fold 2/3: 33 train / 17 val patients
+[ACDCSliceDataset] Scanning 33 patients (augment=True)...
+  [!] Skipped 4 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 225
+[ACDCSliceDataset] Scanning 17 patients (augment=False)...
+  [!] Skipped 1 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 115
+  Registration net frozen for first 5 epochs
+  [Fold 2 | Ep   1/20] loss=1.472 train_acc=37.8% val_acc=35.3% val_loss=1.342 (10s)
+  [Fold 2 | Ep   2/20] loss=1.299 train_acc=41.3% val_acc=41.2% val_loss=1.280 (11s)
+  [Fold 2 | Ep   3/20] loss=1.267 train_acc=47.6% val_acc=41.2% val_loss=1.266 (11s)
+  [Fold 2 | Ep   4/20] loss=1.245 train_acc=40.9% val_acc=35.3% val_loss=1.261 (11s)
+  [Fold 2 | Ep   5/20] loss=1.241 train_acc=43.6% val_acc=35.3% val_loss=1.258 (12s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 2 | Ep   6/20] loss=1.275 train_acc=36.9% val_acc=64.7% val_loss=1.254 (13s)
+  [Fold 2 | Ep   7/20] loss=1.231 train_acc=44.9% val_acc=58.8% val_loss=1.247 (13s)
+  [Fold 2 | Ep   8/20] loss=1.230 train_acc=49.3% val_acc=47.1% val_loss=1.247 (14s)
+  [Fold 2 | Ep   9/20] loss=1.230 train_acc=52.0% val_acc=76.5% val_loss=1.242 (14s)
+  [Fold 2 | Ep  10/20] loss=1.234 train_acc=49.3% val_acc=52.9% val_loss=1.235 (13s)
+  [Fold 2 | Ep  11/20] loss=1.239 train_acc=50.7% val_acc=70.6% val_loss=1.228 (15s)
+  [Fold 2 | Ep  12/20] loss=1.173 train_acc=58.2% val_acc=76.5% val_loss=1.210 (14s)
+  [Fold 2 | Ep  13/20] loss=1.140 train_acc=68.9% val_acc=70.6% val_loss=1.188 (12s)
+  [Fold 2 | Ep  14/20] loss=1.130 train_acc=67.6% val_acc=58.8% val_loss=1.186 (13s)
+  [Fold 2 | Ep  15/20] loss=1.138 train_acc=70.2% val_acc=70.6% val_loss=1.160 (13s)
+  [Fold 2 | Ep  16/20] loss=1.074 train_acc=77.3% val_acc=76.5% val_loss=1.147 (14s)
+  [Fold 2 | Ep  17/20] loss=1.084 train_acc=73.8% val_acc=70.6% val_loss=1.138 (13s)
+  [Fold 2 | Ep  18/20] loss=1.047 train_acc=77.8% val_acc=70.6% val_loss=1.136 (14s)
+  [Fold 2 | Ep  19/20] loss=1.051 train_acc=77.3% val_acc=76.5% val_loss=1.139 (14s)
+  [Fold 2 | Ep  20/20] loss=1.031 train_acc=79.6% val_acc=76.5% val_loss=1.139 (13s)
+  Best val acc: 76.5%
+
+Fold 3/3: 34 train / 16 val patients
+[ACDCSliceDataset] Scanning 34 patients (augment=True)...
+  [!] Skipped 4 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 231
+[ACDCSliceDataset] Scanning 16 patients (augment=False)...
+  [!] Skipped 1 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 109
+  Registration net frozen for first 5 epochs
+  [Fold 3 | Ep   1/20] loss=1.481 train_acc=41.1% val_acc=62.5% val_loss=1.331 (10s)
+  [Fold 3 | Ep   2/20] loss=1.295 train_acc=43.3% val_acc=37.5% val_loss=1.265 (10s)
+  [Fold 3 | Ep   3/20] loss=1.255 train_acc=39.4% val_acc=56.2% val_loss=1.250 (10s)
+  [Fold 3 | Ep   4/20] loss=1.247 train_acc=42.4% val_acc=37.5% val_loss=1.248 (11s)
+  [Fold 3 | Ep   5/20] loss=1.232 train_acc=43.3% val_acc=68.8% val_loss=1.239 (12s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 3 | Ep   6/20] loss=1.227 train_acc=47.2% val_acc=81.2% val_loss=1.234 (13s)
+  [Fold 3 | Ep   7/20] loss=1.236 train_acc=42.9% val_acc=81.2% val_loss=1.231 (13s)
+  [Fold 3 | Ep   8/20] loss=1.237 train_acc=47.2% val_acc=81.2% val_loss=1.227 (14s)
+  [Fold 3 | Ep   9/20] loss=1.220 train_acc=58.9% val_acc=68.8% val_loss=1.225 (12s)
+  [Fold 3 | Ep  10/20] loss=1.211 train_acc=54.1% val_acc=81.2% val_loss=1.219 (13s)
+  [Fold 3 | Ep  11/20] loss=1.217 train_acc=50.2% val_acc=81.2% val_loss=1.217 (14s)
+  [Fold 3 | Ep  12/20] loss=1.199 train_acc=56.7% val_acc=81.2% val_loss=1.214 (13s)
+  [Fold 3 | Ep  13/20] loss=1.199 train_acc=55.0% val_acc=81.2% val_loss=1.213 (13s)
+  [Fold 3 | Ep  14/20] loss=1.207 train_acc=55.4% val_acc=81.2% val_loss=1.213 (14s)
+  [Fold 3 | Ep  15/20] loss=1.182 train_acc=59.3% val_acc=81.2% val_loss=1.211 (14s)
+  [Fold 3 | Ep  16/20] loss=1.187 train_acc=62.3% val_acc=81.2% val_loss=1.209 (13s)
+  [Fold 3 | Ep  17/20] loss=1.204 train_acc=50.2% val_acc=81.2% val_loss=1.208 (13s)
+  [Fold 3 | Ep  18/20] loss=1.176 train_acc=59.3% val_acc=81.2% val_loss=1.209 (15s)
+  [Fold 3 | Ep  19/20] loss=1.187 train_acc=60.6% val_acc=81.2% val_loss=1.210 (13s)
+  [Fold 3 | Ep  20/20] loss=1.183 train_acc=55.4% val_acc=81.2% val_loss=1.209 (13s)
+  Best val acc: 81.2%
+
+============================================================
+  K-Fold CV Final Results
+============================================================
+  Overall accuracy: 80.0%  (40/50)
+
+  Per-class accuracy:
+    DCM   : 100.0%  (20 patients)
+    HCM   : 100.0%  (20 patients)
+    MINF  : 0.0%  (10 patients)
+
+  Confusion matrix (rows=true, cols=pred):
+         NOR    DCM    HCM   MINF     RV
+  NOR  :     0      0      0      0      0
+  DCM  :     0     20      0      0      0
+  HCM  :     0      0     20      0      0
+  MINF :     0      6      4      0      0
+  RV   :     0      0      0      0      0
+============================================================
+
+Results saved to results_quick_v3.json

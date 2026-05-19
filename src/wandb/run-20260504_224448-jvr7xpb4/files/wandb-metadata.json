@@ -1,0 +1,115 @@
+{
+  "os": "Linux-5.15.0-176-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.12.13",
+  "startedAt": "2026-05-05T05:44:48.742801Z",
+  "args": [
+    "--march9_dir",
+    "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "--training_dir",
+    "/home/amo/CINEMRI/data/ACDC/training",
+    "--n_patients",
+    "100",
+    "--epochs",
+    "120",
+    "--batch_size",
+    "8",
+    "--n_splits",
+    "5",
+    "--patience",
+    "30",
+    "--seed",
+    "42",
+    "--model_type",
+    "clinical_only",
+    "--results_file",
+    "results/stage1_v2_clinical.json",
+    "--wandb_project",
+    "cardiac-ode",
+    "--wandb_run_name",
+    "stage1_v2_clinical"
+  ],
+  "program": "/home/amo/CINEMRI/src/train_stage1_v2.py",
+  "codePath": "src/train_stage1_v2.py",
+  "codePathLocal": "train_stage1_v2.py",
+  "git": {
+    "remote": "git@github.com:chouathenamo/CINEMRI.git",
+    "commit": "f34ccc69fbca25c0edc1d025cce18f30fd2caf99"
+  },
+  "email": "Athena_1224@outlook.com",
+  "root": "/home/amo/CINEMRI/src",
+  "host": "REDLRADADM35838",
+  "executable": "/home/amo/miniconda3/envs/cinemri/bin/python",
+  "cpu_count": 112,
+  "cpu_count_logical": 224,
+  "gpu": "NVIDIA H100 NVL",
+  "gpu_count": 8,
+  "disk": {
+    "/": {
+      "total": "105089261568",
+      "used": "43287498752"
+    }
+  },
+  "memory": {
+    "total": "2164148842496"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-a1b53955-65a1-8475-18b5-cc8979340688"
+    },
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-6786bf66-cb62-254f-0df2-c8f7cd564739"
+    },
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-20ca9ee4-2a58-e285-44b6-25be01a3ff09"
+    },
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-28b7d1e7-6f24-bbf0-b75e-2efd08b1be31"
+    },
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-a4d4f213-4805-13c1-53e9-1ff7d9368c5e"
+    },
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-014b9cd9-4cf2-7edd-bb8e-fb44ee516dd3"
+    },
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-034cdaa4-2051-9dfc-b0ae-69a9d48dc905"
+    },
+    {
+      "name": "NVIDIA H100 NVL",
+      "memoryTotal": "100485038080",
+      "cudaCores": 16896,
+      "architecture": "Hopper",
+      "uuid": "GPU-fc1d3563-b1a4-ac44-ed26-3e5e1997680b"
+    }
+  ],
+  "cudaVersion": "12.8",
+  "writerId": "h3hylfuvr8t28p5bcu67g5mp1l9usx0f"
+}

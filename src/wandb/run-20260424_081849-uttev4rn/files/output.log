@@ -1,0 +1,52 @@
+  [Fold 1 | Ep   1/120] loss=1.627 train_acc=19.3% val_acc=20.0% val_loss=1.659 (36s)
+  [Fold 1 | Ep   2/120] loss=1.604 train_acc=22.3% val_acc=20.0% val_loss=1.655 (35s)
+  [Fold 1 | Ep   3/120] loss=1.589 train_acc=21.9% val_acc=20.0% val_loss=1.642 (34s)
+  [Fold 1 | Ep   4/120] loss=1.582 train_acc=22.6% val_acc=20.0% val_loss=1.632 (36s)
+  [Fold 1 | Ep   5/120] loss=1.570 train_acc=23.4% val_acc=20.0% val_loss=1.624 (36s)
+  [Fold 1 | Ep   6/120] loss=1.572 train_acc=21.5% val_acc=25.0% val_loss=1.609 (34s)
+  [Fold 1 | Ep   7/120] loss=1.559 train_acc=24.7% val_acc=35.0% val_loss=1.606 (36s)
+  [Fold 1 | Ep   8/120] loss=1.546 train_acc=24.1% val_acc=30.0% val_loss=1.591 (36s)
+  [Fold 1 | Ep   9/120] loss=1.538 train_acc=23.7% val_acc=35.0% val_loss=1.587 (36s)
+  [Fold 1 | Ep  10/120] loss=1.527 train_acc=24.3% val_acc=35.0% val_loss=1.585 (36s)
+  [Fold 1 | Ep  11/120] loss=1.517 train_acc=26.5% val_acc=35.0% val_loss=1.567 (35s)
+  [Fold 1 | Ep  12/120] loss=1.510 train_acc=28.9% val_acc=35.0% val_loss=1.563 (35s)
+  [Fold 1 | Ep  13/120] loss=1.487 train_acc=28.4% val_acc=40.0% val_loss=1.548 (35s)
+  [Fold 1 | Ep  14/120] loss=1.490 train_acc=28.4% val_acc=45.0% val_loss=1.538 (36s)
+  [Fold 1 | Ep  15/120] loss=1.476 train_acc=30.6% val_acc=45.0% val_loss=1.524 (37s)
+  [Fold 1 | Ep  16/120] loss=1.457 train_acc=32.3% val_acc=45.0% val_loss=1.521 (37s)
+  [Fold 1 | Ep  17/120] loss=1.459 train_acc=32.5% val_acc=40.0% val_loss=1.521 (38s)
+  [Fold 1 | Ep  18/120] loss=1.451 train_acc=36.7% val_acc=40.0% val_loss=1.514 (37s)
+  [Fold 1 | Ep  19/120] loss=1.422 train_acc=37.5% val_acc=35.0% val_loss=1.506 (74s)
+  [Fold 1 | Ep  20/120] loss=1.422 train_acc=34.3% val_acc=45.0% val_loss=1.506 (40s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+Traceback (most recent call last):
+  File "/home/amo/CINEMRI/src/train_v3_residual.py", line 375, in <module>
+    main()
+  File "/home/amo/CINEMRI/src/train_v3_residual.py", line 363, in main
+    results = stratified_kfold(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/amo/CINEMRI/src/train_v3_residual.py", line 231, in stratified_kfold
+    train_m = train_epoch(model, train_loader, optimizer, device)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/CINEMRI/src/train_v3_residual.py", line 97, in train_epoch
+    out = model(frames, masks, times, labels, clinical_feat=clin)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/CINEMRI/src/model_v3_residual.py", line 85, in forward
+    warped, vel_field, phi = self.registration.get_warped(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/CINEMRI/src/registration.py", line 272, in get_warped
+    warped = warp(frame_moving, phi)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/CINEMRI/src/registration.py", line 73, in warp
+    warped = F.grid_sample(
+             ^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/torch/nn/functional.py", line 4910, in grid_sample
+    return torch.grid_sampler(input, grid, mode_enum, padding_mode_enum, align_corners)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB. GPU 0 has a total capacity of 93.10 GiB of which 1.75 MiB is free. Process 2735127 has 85.89 GiB memory in use. Process 3460276 has 3.85 GiB memory in use. Including non-PyTorch memory, this process has 3.34 GiB memory in use. Of the allocated memory 2.51 GiB is allocated by PyTorch, and 83.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,48 @@
+2026-04-20 12:07:15 ERROR Traceback (most recent call last):
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/cli/cli.py", line 150, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/cli/cli.py", line 319, in login
+    wandb.login(
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 101, in login
+    logged_in, _ = _login(
+                   ^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 190, in _login
+    auth = _find_or_prompt_for_key(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 266, in _find_or_prompt_for_key
+    auth = wbauth.authenticate_session(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 127, in authenticate_session
+    if not relogin and (auth := _use_system_auth(host=host, source=source)):
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 188, in _use_system_auth
+    _try_env_auth(host=host)  #
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 225, in _try_env_auth
+    raise AuthenticationError(f"{env.API_KEY} invalid: {e}") from None
+wandb.errors.errors.AuthenticationError: WANDB_API_KEY invalid: API key must have 40+ characters, has 13.
+Traceback (most recent call last):
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/cli/cli.py", line 150, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/cli/cli.py", line 319, in login
+    wandb.login(
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 101, in login
+    logged_in, _ = _login(
+                   ^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 190, in _login
+    auth = _find_or_prompt_for_key(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 266, in _find_or_prompt_for_key
+    auth = wbauth.authenticate_session(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 127, in authenticate_session
+    if not relogin and (auth := _use_system_auth(host=host, source=source)):
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 188, in _use_system_auth
+    _try_env_auth(host=host)  #
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amo/miniconda3/envs/cinemri/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 225, in _try_env_auth
+    raise AuthenticationError(f"{env.API_KEY} invalid: {e}") from None
+wandb.errors.errors.AuthenticationError: WANDB_API_KEY invalid: API key must have 40+ characters, has 13.

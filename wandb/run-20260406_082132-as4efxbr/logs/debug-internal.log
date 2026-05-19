@@ -1,0 +1,19 @@
+{"time":"2026-04-06T08:21:32.941829291-07:00","level":"INFO","msg":"wandb-core"}
+{"time":"2026-04-06T08:21:32.946950777-07:00","level":"INFO","msg":"stream: starting","core version":"0.25.1"}
+{"time":"2026-04-06T08:21:35.793883797-07:00","level":"INFO","msg":"stream: created new stream","id":"as4efxbr"}
+{"time":"2026-04-06T08:21:35.794039638-07:00","level":"INFO","msg":"handler: started"}
+{"time":"2026-04-06T08:21:35.794201047-07:00","level":"INFO","msg":"stream: started"}
+{"time":"2026-04-06T08:21:35.794231538-07:00","level":"INFO","msg":"writer: started","stream_id":"as4efxbr"}
+{"time":"2026-04-06T08:21:35.794235907-07:00","level":"INFO","msg":"sender: started"}
+{"time":"2026-04-06T08:22:05.796500875-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2026-04-06T08:22:38.040829249-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2026-04-06T08:23:01.381184688-07:00","level":"ERROR","msg":"api: HTTP error","status":401,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2026-04-06T08:23:01.381532673-07:00","level":"ERROR","msg":"runupserter: failed to init run","error":"returned error 401: {\"data\":{\"upsertBucket\":null},\"errors\":[{\"message\":\"user is not logged in\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}]}"}
+{"time":"2026-04-06T08:23:01.408007438-07:00","level":"INFO","msg":"stream: closing"}
+{"time":"2026-04-06T08:23:01.408921767-07:00","level":"ERROR","msg":"sender: uploadConfigFile: runhandle: run not yet initialized"}
+{"time":"2026-04-06T08:23:01.410264367-07:00","level":"ERROR","msg":"runfiles: runhandle: run not yet initialized"}
+{"time":"2026-04-06T08:23:01.411167958-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-04-06T08:23:01.411205158-07:00","level":"INFO","msg":"handler: closed"}
+{"time":"2026-04-06T08:23:01.411263412-07:00","level":"INFO","msg":"sender: closed"}
+{"time":"2026-04-06T08:23:01.411275936-07:00","level":"INFO","msg":"stream: closed"}
+{"time":"2026-04-06T08:23:01.412739188-07:00","level":"ERROR","msg":"stream: runURL: runhandle: run not yet initialized"}

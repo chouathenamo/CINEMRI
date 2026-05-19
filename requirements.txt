@@ -1,5 +1,12 @@
-torch>=2.0.0
-torchvision
+# IMPORTANT: Install in this order:
+#
+# 1. conda install nomkl -c defaults
+# 2. pip install torch==2.5.1+cu121 torchvision --index-url https://download.pytorch.org/whl/cu121
+# 3. pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-2.5.1+cu121.html
+# 4. pip install -r requirements.txt
+
+torch==2.5.1+cu121
+torchvision==0.20.1
 nibabel
 numpy
 torchdiffeq

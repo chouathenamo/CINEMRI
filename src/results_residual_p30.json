@@ -1,0 +1,60 @@
+{
+  "accuracy": 0.68,
+  "per_class": {},
+  "confusion_matrix": [
+    [
+      4,
+      0,
+      7,
+      3,
+      6
+    ],
+    [
+      0,
+      16,
+      0,
+      4,
+      0
+    ],
+    [
+      1,
+      0,
+      13,
+      2,
+      4
+    ],
+    [
+      1,
+      2,
+      0,
+      15,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      20
+    ]
+  ],
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 100,
+    "epochs": 120,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "patience": 30,
+    "freeze_reg_epochs": 20,
+    "log_every": 5,
+    "cv": "kfold",
+    "n_splits": 5,
+    "ablation": null,
+    "checkpoint_dir": "checkpoints",
+    "results_file": "results_residual_p30.json",
+    "wandb_project": "cardiac-ode",
+    "wandb_run_name": "residual_p30"
+  },
+  "ablation": "residual_ode"
+}

@@ -326,9 +326,9 @@ def lopo_cv(
         info = parse_patient_info(training_dir, pid)
         patient_labels[pid] = CLASS_TO_IDX.get(info["group"], -1)
 
-    print(f"\n{'='*60}")
-    print(f"  Leave-One-Patient-Out CV  ({len(patient_ids)} folds)")
-    print(f"{'='*60}\n")
+    print(f"\n{'='*60}", flush=True)
+    print(f"  Leave-One-Patient-Out CV  ({len(patient_ids)} folds)", flush=True)
+    print(f"{'='*60}\n", flush=True)
 
     for fold_idx, held_out in enumerate(patient_ids):
         train_pids = [p for p in patient_ids if p != held_out]
@@ -342,7 +342,7 @@ def lopo_cv(
         test_ds  = ACDCSliceDataset(march9_dir, training_dir, test_pids,  target_h=128, target_w=128)
 
         if len(test_ds) == 0:
-            print(f"  Skipping — no valid slices for {held_out}")
+            print(f"  Skipping — no valid slices for {held_out}", flush=True)
             continue
 
         train_loader = DataLoader(
@@ -430,7 +430,7 @@ def lopo_cv(
 
             # Early stopping
             if patience_ctr >= args.patience:
-                print(f"  Early stopping at epoch {epoch} (patience={args.patience})")
+                print(f"  Early stopping at epoch {epoch} (patience={args.patience})", flush=True)
                 break
 
         if use_wandb:
@@ -460,27 +460,27 @@ def summarize_lopo(results: List[Dict]) -> Dict:
     labels = np.array(labels)
     acc    = (preds == labels).mean()
 
-    print(f"\n{'='*60}")
-    print(f"  LOPO CV Final Results")
-    print(f"{'='*60}")
-    print(f"  Overall accuracy: {acc*100:.1f}%  ({(preds==labels).sum()}/{len(labels)})")
-    print(f"\n  Per-class accuracy:")
+    print(f"\n{'='*60}", flush=True)
+    print(f"  LOPO CV Final Results", flush=True)
+    print(f"{'='*60}", flush=True)
+    print(f"  Overall accuracy: {acc*100:.1f}%  ({(preds==labels).sum()}/{len(labels)})", flush=True)
+    print(f"\n  Per-class accuracy:", flush=True)
     for c in range(5):
         mask = labels == c
         if mask.sum() > 0:
             cls_acc = (preds[mask] == labels[mask]).mean()
             name    = IDX_TO_CLASS.get(c, str(c))
-            print(f"    {name:<6}: {cls_acc*100:.1f}%  ({mask.sum()} patients)")
+            print(f"    {name:<6}: {cls_acc*100:.1f}%  ({mask.sum()} patients)", flush=True)
 
-    print(f"\n  Confusion matrix (rows=true, cols=pred):")
+    print(f"\n  Confusion matrix (rows=true, cols=pred):", flush=True)
     classes = [IDX_TO_CLASS[i] for i in range(5)]
     cm = confusion_matrix(labels, preds, labels=list(range(5)))
     header = "       " + "  ".join(f"{c:>5}" for c in classes)
-    print(header)
+    print(header, flush=True)
     for i, row in enumerate(cm):
-        print(f"  {classes[i]:<5}: " + "  ".join(f"{v:>5}" for v in row))
+        print(f"  {classes[i]:<5}: " + "  ".join(f"{v:>5}" for v in row), flush=True)
 
-    print(f"{'='*60}\n")
+    print(f"{'='*60}\n", flush=True)
 
     return {"accuracy": acc, "per_class": {}, "confusion_matrix": cm.tolist()}
 
@@ -511,15 +511,15 @@ def stratified_kfold(
         train_pids = [patient_ids[i] for i in train_idx]
         val_pids   = [patient_ids[i] for i in val_idx]
 
-        print(f"\nFold {fold_idx+1}/{n_splits}: {len(train_pids)} train / {len(val_pids)} val patients")
+        print(f"\nFold {fold_idx+1}/{n_splits}: {len(train_pids)} train / {len(val_pids)} val patients", flush=True)
 
         train_ds = ACDCSliceDataset(march9_dir, training_dir, train_pids)
         val_ds   = ACDCSliceDataset(march9_dir, training_dir, val_pids)
 
         train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True,
-                                  collate_fn=collate_fn, num_workers=2)
+                                  collate_fn=collate_fn, num_workers=0)
         val_loader   = DataLoader(val_ds,   batch_size=args.batch_size, shuffle=False,
-                                  collate_fn=collate_fn, num_workers=2)
+                                  collate_fn=collate_fn, num_workers=0)
 
         model     = build_model(args.ablation, n_classes=5, device=device)
         optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-5)
@@ -538,6 +538,8 @@ def stratified_kfold(
             )
 
         best_acc = 0.0
+        best_preds  = []
+        best_labels = []
         for epoch in range(1, args.epochs + 1):
             train_m = train_epoch(model, train_loader, optimizer, device)
             val_m   = val_epoch(model, val_loader, device)
@@ -567,7 +569,7 @@ def stratified_kfold(
 
         all_preds.extend(best_preds)
         all_labels.extend(best_labels)
-        print(f"  Best val acc: {best_acc*100:.1f}%")
+        print(f"  Best val acc: {best_acc*100:.1f}%", flush=True)
 
     return summarize_lopo([
         {"fold": i, "held_out": "", "true_label": l, "pred_label": p, "val_acc": 0}
@@ -629,8 +631,8 @@ def parse_args():
 def main():
     args   = parse_args()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Device : {device}")
-    print(f"Config : {vars(args)}\n")
+    print(f"Device : {device}", flush=True)
+    print(f"Config : {vars(args)}\n", flush=True)
 
     march9_dir   = args.march9_dir
     training_dir = args.training_dir
@@ -641,18 +643,18 @@ def main():
     # Discover patients from Images/ folder, limited to n_patients
     all_pids = discover_patients_from_images(march9_dir)[:args.n_patients]
 
-    print(f"Using {len(all_pids)} patients: {all_pids[0]} … {all_pids[-1]}")
+    print(f"Using {len(all_pids)} patients: {all_pids[0]} … {all_pids[-1]}", flush=True)
 
     # Label distribution
     class_counts = defaultdict(int)
     for pid in all_pids:
         info = parse_patient_info(training_dir, pid)
         class_counts[info["group"]] += 1
-    print(f"Class distribution: {dict(class_counts)}\n")
+    print(f"Class distribution: {dict(class_counts)}\n", flush=True)
 
     # Run CV
     ablation_str = args.ablation if args.ablation else "full_model"
-    print(f"Model variant: {ablation_str}")
+    print(f"Model variant: {ablation_str}", flush=True)
 
     if args.cv == "lopo":
         results = lopo_cv(march9_dir, training_dir, all_pids, args, device)
@@ -664,7 +666,7 @@ def main():
     results["ablation"] = ablation_str
     with open(args.results_file, "w") as f:
         json.dump(results, f, indent=2)
-    print(f"Results saved to {args.results_file}")
+    print(f"Results saved to {args.results_file}", flush=True)
 
 
 if __name__ == "__main__":

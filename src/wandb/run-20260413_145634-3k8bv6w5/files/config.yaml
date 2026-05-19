@@ -1,0 +1,147 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            5gv3ig3t1e5atdx9wkapoweg6hnjsmae:
+                args:
+                    - --march9_dir
+                    - /home/amo/CINEMRI/data/ACDC/March9Data
+                    - --training_dir
+                    - /home/amo/CINEMRI/data/ACDC/training
+                    - --n_patients
+                    - "100"
+                    - --epochs
+                    - "120"
+                    - --batch_size
+                    - "8"
+                    - --n_splits
+                    - "5"
+                    - --cv
+                    - kfold
+                    - --wandb_project
+                    - cardiac-ode
+                    - --wandb_run_name
+                    - full_v4
+                    - --results_file
+                    - results_full_v4.json
+                codePath: src/train_v4.py
+                codePathLocal: train_v4.py
+                cpu_count: 112
+                cpu_count_logical: 224
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "105089261568"
+                        used: "55494807552"
+                email: Athena_1224@outlook.com
+                executable: /home/amo/miniconda3/envs/cinemri/bin/python
+                git:
+                    commit: f34ccc69fbca25c0edc1d025cce18f30fd2caf99
+                    remote: git@github.com:chouathenamo/CINEMRI.git
+                gpu: NVIDIA H100 NVL
+                gpu_count: 8
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-a1b53955-65a1-8475-18b5-cc8979340688
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-6786bf66-cb62-254f-0df2-c8f7cd564739
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-20ca9ee4-2a58-e285-44b6-25be01a3ff09
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-28b7d1e7-6f24-bbf0-b75e-2efd08b1be31
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-a4d4f213-4805-13c1-53e9-1ff7d9368c5e
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-014b9cd9-4cf2-7edd-bb8e-fb44ee516dd3
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-034cdaa4-2051-9dfc-b0ae-69a9d48dc905
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "100485038080"
+                      name: NVIDIA H100 NVL
+                      uuid: GPU-fc1d3563-b1a4-ac44-ed26-3e5e1997680b
+                host: REDLRADADM35838
+                memory:
+                    total: "2164148879360"
+                os: Linux-5.15.0-171-generic-x86_64-with-glibc2.35
+                program: /home/amo/CINEMRI/src/train_v4.py
+                python: CPython 3.12.13
+                root: /home/amo/CINEMRI/src
+                startedAt: "2026-04-13T21:56:34.217173Z"
+                writerId: 5gv3ig3t1e5atdx9wkapoweg6hnjsmae
+        m: []
+        python_version: 3.12.13
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+            "2":
+                - 1
+                - 5
+                - 53
+            "3":
+                - 2
+                - 13
+                - 15
+                - 16
+                - 62
+            "4": 3.12.13
+            "5": 0.25.1
+            "10":
+                - 20
+            "12": 0.25.1
+            "13": linux-x86_64
+ablation:
+    value: null
+batch_size:
+    value: 8
+checkpoint_dir:
+    value: checkpoints
+cv:
+    value: kfold
+epochs:
+    value: 120
+freeze_reg_epochs:
+    value: 10
+log_every:
+    value: 5
+lr:
+    value: 0.0001
+march9_dir:
+    value: /home/amo/CINEMRI/data/ACDC/March9Data
+n_patients:
+    value: 100
+n_splits:
+    value: 5
+patience:
+    value: 30
+results_file:
+    value: results_full_v4.json
+training_dir:
+    value: /home/amo/CINEMRI/data/ACDC/training
+wandb_project:
+    value: cardiac-ode
+wandb_run_name:
+    value: full_v4

@@ -1,0 +1,90 @@
+{
+  "condition": "no_ode",
+  "accuracy": 0.75,
+  "acc_4class": 0.8076923076923077,
+  "macro_f1": 0.7487937284854483,
+  "weighted_f1": 0.7487937284854483,
+  "confusion_matrix": [
+    [
+      12,
+      0,
+      2,
+      4,
+      2
+    ],
+    [
+      0,
+      14,
+      1,
+      5,
+      0
+    ],
+    [
+      2,
+      0,
+      14,
+      1,
+      3
+    ],
+    [
+      0,
+      3,
+      1,
+      16,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      19
+    ]
+  ],
+  "per_class": {
+    "NOR": {
+      "precision": 0.8571428571428571,
+      "recall": 0.6,
+      "f1": 0.7058823529411764,
+      "support": 20
+    },
+    "DCM": {
+      "precision": 0.8235294117647058,
+      "recall": 0.7,
+      "f1": 0.7567567567567567,
+      "support": 20
+    },
+    "HCM": {
+      "precision": 0.7777777777777778,
+      "recall": 0.7,
+      "f1": 0.7368421052631577,
+      "support": 20
+    },
+    "MINF": {
+      "precision": 0.5925925925925926,
+      "recall": 0.8,
+      "f1": 0.6808510638297872,
+      "support": 20
+    },
+    "RV": {
+      "precision": 0.7916666666666666,
+      "recall": 0.95,
+      "f1": 0.8636363636363635,
+      "support": 20
+    }
+  },
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 100,
+    "epochs": 120,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "patience": 30,
+    "freeze_reg_epochs": 20,
+    "n_splits": 5,
+    "wandb_project": "cardiac-ode",
+    "results_file": "results_abl_no_ode.json",
+    "resume": false
+  }
+}

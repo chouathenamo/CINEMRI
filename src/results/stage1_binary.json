@@ -1,0 +1,33 @@
+{
+  "accuracy": 0.84,
+  "nor_recall": 0.35,
+  "dis_recall": 0.9625,
+  "nor_precision": 0.7,
+  "dis_precision": 0.8555555555555555,
+  "confusion_matrix": [
+    [
+      7,
+      13
+    ],
+    [
+      3,
+      77
+    ]
+  ],
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 100,
+    "epochs": 120,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "patience": 30,
+    "freeze_reg_epochs": 20,
+    "n_splits": 5,
+    "seed": 42,
+    "results_file": "results/stage1_binary.json",
+    "wandb_project": "cardiac-ode",
+    "wandb_run_name": "stage1_binary_w4p5"
+  },
+  "seed": 42
+}

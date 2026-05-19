@@ -1,0 +1,26 @@
+{"time":"2026-04-20T12:08:33.958601213-07:00","level":"INFO","msg":"wandb-core"}
+{"time":"2026-04-20T12:08:33.961095608-07:00","level":"INFO","msg":"stream: starting","core version":"0.25.1"}
+{"time":"2026-04-20T12:08:34.846985277-07:00","level":"INFO","msg":"stream: created new stream","id":"53uyvhzq"}
+{"time":"2026-04-20T12:08:34.849370667-07:00","level":"INFO","msg":"handler: started"}
+{"time":"2026-04-20T12:08:34.849638528-07:00","level":"INFO","msg":"stream: started"}
+{"time":"2026-04-20T12:08:34.849653085-07:00","level":"INFO","msg":"writer: started","stream_id":"53uyvhzq"}
+{"time":"2026-04-20T12:08:34.849658505-07:00","level":"INFO","msg":"sender: started"}
+{"time":"2026-04-20T12:08:40.59891312-07:00","level":"INFO","msg":"filestream: sending request","total_files":0,"uploaded_len":1}
+{"time":"2026-04-20T12:08:40.767187665-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:08:55.598912906-07:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":0,"events_lines":2,"uploaded_len":1}
+{"time":"2026-04-20T12:08:55.799296315-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:09:10.599952422-07:00","level":"INFO","msg":"filestream: sending request","total_files":4,"history_offset":0,"history_lines":1,"events_offset":2,"events_lines":2,"console_offset":0,"console_lines":1}
+{"time":"2026-04-20T12:09:10.778827857-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:09:25.598823228-07:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":4,"events_lines":2}
+{"time":"2026-04-20T12:09:25.75086415-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:09:40.599371966-07:00","level":"INFO","msg":"filestream: sending request","total_files":4,"history_offset":1,"history_lines":1,"events_offset":6,"events_lines":2,"console_offset":1,"console_lines":1}
+{"time":"2026-04-20T12:09:40.760846224-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:09:55.599611616-07:00","level":"INFO","msg":"filestream: sending request","total_files":4,"history_offset":2,"history_lines":1,"events_offset":8,"events_lines":2,"console_offset":2,"console_lines":1}
+{"time":"2026-04-20T12:09:55.742288636-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:10:10.598695658-07:00","level":"INFO","msg":"filestream: sending request","total_files":1,"events_offset":10,"events_lines":2}
+{"time":"2026-04-20T12:10:10.755228929-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:10:25.598799322-07:00","level":"INFO","msg":"filestream: sending request","total_files":4,"history_offset":3,"history_lines":1,"events_offset":12,"events_lines":2,"console_offset":3,"console_lines":1}
+{"time":"2026-04-20T12:10:25.720691194-07:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-04-20T12:10:40.599640628-07:00","level":"INFO","msg":"filestream: sending request","total_files":4,"history_offset":4,"history_lines":1,"events_offset":14,"events_lines":2,"console_offset":4,"console_lines":1}
+{"time":"2026-04-20T12:10:40.668930377-07:00","level":"ERROR","msg":"api: HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/athena_1224-ucla/cardiac-ode/53uyvhzq/file_stream"}
+{"time":"2026-04-20T12:10:40.669019301-07:00","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found url=https://api.wandb.ai/files/athena_1224-ucla/cardiac-ode/53uyvhzq/file_stream: {\"error\":\"run cardiac-ode/53uyvhzq not found while streaming file\"}"}

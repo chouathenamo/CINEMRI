@@ -1,0 +1,60 @@
+{
+  "accuracy": 0.61,
+  "per_class": {},
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      8,
+      6,
+      5
+    ],
+    [
+      0,
+      12,
+      0,
+      8,
+      0
+    ],
+    [
+      0,
+      0,
+      13,
+      4,
+      3
+    ],
+    [
+      0,
+      2,
+      0,
+      17,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      2,
+      18
+    ]
+  ],
+  "config": {
+    "march9_dir": "/home/amo/CINEMRI/data/ACDC/March9Data",
+    "training_dir": "/home/amo/CINEMRI/data/ACDC/training",
+    "n_patients": 100,
+    "epochs": 120,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "patience": 15,
+    "freeze_reg_epochs": 20,
+    "log_every": 5,
+    "cv": "kfold",
+    "n_splits": 5,
+    "ablation": null,
+    "checkpoint_dir": "checkpoints",
+    "results_file": "results_full_v3.json",
+    "wandb_project": "cardiac-ode",
+    "wandb_run_name": "full_v3"
+  },
+  "ablation": "full_model_v3"
+}

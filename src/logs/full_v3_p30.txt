@@ -1,0 +1,641 @@
+nohup: ignoring input
+Device : cuda
+Config : {'march9_dir': '/home/amo/CINEMRI/data/ACDC/March9Data', 'training_dir': '/home/amo/CINEMRI/data/ACDC/training', 'n_patients': 100, 'epochs': 120, 'batch_size': 8, 'lr': 0.0001, 'patience': 30, 'freeze_reg_epochs': 20, 'log_every': 5, 'cv': 'kfold', 'n_splits': 5, 'ablation': None, 'checkpoint_dir': 'checkpoints', 'results_file': 'results_full_v3_p30.json', 'wandb_project': 'cardiac-ode', 'wandb_run_name': 'full_v3_p30'}
+
+Using 100 patients: patient001 … patient100
+Class distribution: {'DCM': 20, 'HCM': 20, 'MINF': 20, 'NOR': 20, 'RV': 20}
+
+Model variant: full_model (v3 — with clinical features)
+Clinical features: 8 scalars (EF, volumes, wall, RV/LV, H, W)
+Regularisation: weight_decay=5e-4, label_smooth=0.1, GAT/ODE dropout=0.3/0.5
+Augmentation: flip + rotate±15° + intensity jitter (train only)
+Early stopping: patience=30 epochs on val_loss
+Reg freeze: first 20 epochs
+
+
+Fold 1/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients (augment=True)...
+  [!] Skipped 4 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 539
+[ACDCSliceDataset] Scanning 20 patients (augment=False)...
+  [!] Skipped 1 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 136
+  Registration net frozen for first 20 epochs
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/amo/.netrc.
+wandb: Currently logged in as: athena_1224 (athena_1224-ucla) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 8toz0upe
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260422_121335-8toz0upe
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v3_p30_fold1
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/8toz0upe
+  [Fold 1 | Ep   1/120] loss=1.616 train_acc=23.0% val_acc=20.0% val_loss=1.635 (206s)
+  [Fold 1 | Ep   2/120] loss=1.607 train_acc=20.8% val_acc=35.0% val_loss=1.629 (388s)
+  [Fold 1 | Ep   3/120] loss=1.590 train_acc=21.3% val_acc=20.0% val_loss=1.627 (595s)
+  [Fold 1 | Ep   4/120] loss=1.581 train_acc=22.8% val_acc=30.0% val_loss=1.619 (218s)
+  [Fold 1 | Ep   5/120] loss=1.582 train_acc=22.3% val_acc=30.0% val_loss=1.608 (358s)
+  [Fold 1 | Ep   6/120] loss=1.561 train_acc=23.2% val_acc=35.0% val_loss=1.597 (449s)
+  [Fold 1 | Ep   7/120] loss=1.555 train_acc=23.4% val_acc=35.0% val_loss=1.584 (156s)
+  [Fold 1 | Ep   8/120] loss=1.546 train_acc=24.3% val_acc=35.0% val_loss=1.580 (383s)
+  [Fold 1 | Ep   9/120] loss=1.537 train_acc=25.0% val_acc=35.0% val_loss=1.566 (418s)
+  [Fold 1 | Ep  10/120] loss=1.526 train_acc=25.6% val_acc=35.0% val_loss=1.559 (211s)
+  [Fold 1 | Ep  11/120] loss=1.515 train_acc=26.3% val_acc=35.0% val_loss=1.543 (223s)
+  [Fold 1 | Ep  12/120] loss=1.499 train_acc=29.9% val_acc=35.0% val_loss=1.537 (85s)
+  [Fold 1 | Ep  13/120] loss=1.507 train_acc=25.6% val_acc=35.0% val_loss=1.533 (247s)
+  [Fold 1 | Ep  14/120] loss=1.484 train_acc=29.3% val_acc=35.0% val_loss=1.518 (216s)
+  [Fold 1 | Ep  15/120] loss=1.475 train_acc=29.7% val_acc=50.0% val_loss=1.503 (205s)
+  [Fold 1 | Ep  16/120] loss=1.470 train_acc=31.4% val_acc=45.0% val_loss=1.497 (273s)
+  [Fold 1 | Ep  17/120] loss=1.457 train_acc=32.7% val_acc=50.0% val_loss=1.485 (208s)
+  [Fold 1 | Ep  18/120] loss=1.441 train_acc=35.1% val_acc=55.0% val_loss=1.472 (219s)
+  [Fold 1 | Ep  19/120] loss=1.440 train_acc=36.9% val_acc=55.0% val_loss=1.462 (180s)
+  [Fold 1 | Ep  20/120] loss=1.425 train_acc=34.5% val_acc=55.0% val_loss=1.448 (215s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 1 | Ep  21/120] loss=1.416 train_acc=42.7% val_acc=55.0% val_loss=1.441 (210s)
+  [Fold 1 | Ep  22/120] loss=1.404 train_acc=39.7% val_acc=55.0% val_loss=1.428 (171s)
+  [Fold 1 | Ep  23/120] loss=1.387 train_acc=43.0% val_acc=55.0% val_loss=1.411 (215s)
+  [Fold 1 | Ep  24/120] loss=1.364 train_acc=44.7% val_acc=55.0% val_loss=1.388 (138s)
+  [Fold 1 | Ep  25/120] loss=1.312 train_acc=48.1% val_acc=55.0% val_loss=1.356 (122s)
+  [Fold 1 | Ep  26/120] loss=1.293 train_acc=49.9% val_acc=60.0% val_loss=1.372 (145s)
+  [Fold 1 | Ep  27/120] loss=1.242 train_acc=53.8% val_acc=60.0% val_loss=1.357 (137s)
+  [Fold 1 | Ep  28/120] loss=1.207 train_acc=54.2% val_acc=55.0% val_loss=1.373 (144s)
+  [Fold 1 | Ep  29/120] loss=1.227 train_acc=51.8% val_acc=60.0% val_loss=1.323 (123s)
+  [Fold 1 | Ep  30/120] loss=1.209 train_acc=55.8% val_acc=55.0% val_loss=1.319 (180s)
+  [Fold 1 | Ep  31/120] loss=1.178 train_acc=53.4% val_acc=55.0% val_loss=1.343 (232s)
+  [Fold 1 | Ep  32/120] loss=1.187 train_acc=57.0% val_acc=65.0% val_loss=1.289 (165s)
+  [Fold 1 | Ep  33/120] loss=1.181 train_acc=55.5% val_acc=65.0% val_loss=1.349 (122s)
+  [Fold 1 | Ep  34/120] loss=1.168 train_acc=55.7% val_acc=50.0% val_loss=1.319 (308s)
+  [Fold 1 | Ep  35/120] loss=1.160 train_acc=58.3% val_acc=50.0% val_loss=1.375 (194s)
+  [Fold 1 | Ep  36/120] loss=1.141 train_acc=59.6% val_acc=60.0% val_loss=1.354 (199s)
+  [Fold 1 | Ep  37/120] loss=1.120 train_acc=59.7% val_acc=60.0% val_loss=1.370 (139s)
+  [Fold 1 | Ep  38/120] loss=1.104 train_acc=63.1% val_acc=65.0% val_loss=1.381 (192s)
+  [Fold 1 | Ep  39/120] loss=1.112 train_acc=62.5% val_acc=65.0% val_loss=1.349 (167s)
+  [Fold 1 | Ep  40/120] loss=1.089 train_acc=61.6% val_acc=55.0% val_loss=1.362 (114s)
+  [Fold 1 | Ep  41/120] loss=1.081 train_acc=64.2% val_acc=65.0% val_loss=1.327 (176s)
+  [Fold 1 | Ep  42/120] loss=1.075 train_acc=63.1% val_acc=65.0% val_loss=1.386 (180s)
+  [Fold 1 | Ep  43/120] loss=1.054 train_acc=64.9% val_acc=65.0% val_loss=1.396 (45s)
+  [Fold 1 | Ep  44/120] loss=1.051 train_acc=64.2% val_acc=45.0% val_loss=1.417 (55s)
+  [Fold 1 | Ep  45/120] loss=1.009 train_acc=66.6% val_acc=50.0% val_loss=1.436 (67s)
+  [Fold 1 | Ep  46/120] loss=1.024 train_acc=65.3% val_acc=60.0% val_loss=1.361 (67s)
+  [Fold 1 | Ep  47/120] loss=0.998 train_acc=64.6% val_acc=60.0% val_loss=1.375 (45s)
+  [Fold 1 | Ep  48/120] loss=0.976 train_acc=68.6% val_acc=55.0% val_loss=1.422 (55s)
+  [Fold 1 | Ep  49/120] loss=0.991 train_acc=64.7% val_acc=70.0% val_loss=1.406 (66s)
+  [Fold 1 | Ep  50/120] loss=0.958 train_acc=69.9% val_acc=65.0% val_loss=1.430 (65s)
+  [Fold 1 | Ep  51/120] loss=0.943 train_acc=67.7% val_acc=60.0% val_loss=1.441 (49s)
+  [Fold 1 | Ep  52/120] loss=0.950 train_acc=70.1% val_acc=60.0% val_loss=1.425 (59s)
+  [Fold 1 | Ep  53/120] loss=0.975 train_acc=67.0% val_acc=75.0% val_loss=1.371 (64s)
+  [Fold 1 | Ep  54/120] loss=0.933 train_acc=68.3% val_acc=70.0% val_loss=1.445 (63s)
+  [Fold 1 | Ep  55/120] loss=0.913 train_acc=72.0% val_acc=70.0% val_loss=1.491 (47s)
+  [Fold 1 | Ep  56/120] loss=0.872 train_acc=71.4% val_acc=75.0% val_loss=1.507 (63s)
+  [Fold 1 | Ep  57/120] loss=0.848 train_acc=75.7% val_acc=60.0% val_loss=1.503 (66s)
+  [Fold 1 | Ep  58/120] loss=0.860 train_acc=72.4% val_acc=70.0% val_loss=1.465 (56s)
+  [Fold 1 | Ep  59/120] loss=0.866 train_acc=71.1% val_acc=55.0% val_loss=1.533 (46s)
+  [Fold 1 | Ep  60/120] loss=0.885 train_acc=71.2% val_acc=60.0% val_loss=1.524 (66s)
+  [Fold 1 | Ep  61/120] loss=0.836 train_acc=75.9% val_acc=65.0% val_loss=1.504 (63s)
+  [Fold 1 | Ep  62/120] loss=0.825 train_acc=74.6% val_acc=65.0% val_loss=1.510 (57s)
+  Early stopping at epoch 62 (val_loss hasn't improved for 30 epochs)
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading history steps 61-61, summary, console lines 62-63
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▅▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇████
+wandb:             lr ██████████▇▇▇▇▇▇▇▆▆▆▆▆▆▅▅▅▅▅▄▄▄▄▃▃▃▂▂▂▁▁
+wandb:      train/acc ▁▁▁▁▁▂▂▂▂▂▂▂▃▃▃▄▃▄▄▅▅▅▆▅▅▆▆▆▆▇▇▇▇▇▇▇████
+wandb: train/cls_loss █████▇▇▇▇▇▇▇▆▆▆▅▅▅▄▄▄▄▄▃▄▃▃▃▃▃▂▂▂▂▂▂▂▁▁▁
+wandb:     train/loss █████▇▇▇▇▇▇▇▇▆▆▆▆▅▅▅▅▄▄▄▄▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁
+wandb: train/reg_loss ▅▆▆▅▄▃▄▅▄▄█▇▆▆▄▅▃▅▁▆▄▄▂▅▃▄▅▅▆▅▇▄▄▇█▅▅▆▅▄
+wandb:        val/acc ▁▃▁▂▃▃▃▃▃▃▄▅▅▅▅▅▅▅▆▆▆▅▇▅▆▅▇▄▅▆▅▇▆▆▇█▆▇▅▇
+wandb:       val/loss ███▇▇▇▆▆▅▄▄▄▃▃▃▂▂▁▁▂▂▁▂▂▂▂▁▂▃▄▃▄▂▄▅▅▄▆▆▅
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.75
+wandb:          epoch 62
+wandb:             lr 5e-05
+wandb:      train/acc 0.74583
+wandb: train/cls_loss 0.79197
+wandb:     train/loss 0.82466
+wandb: train/reg_loss 0.32688
+wandb:        val/acc 0.65
+wandb:       val/loss 1.51024
+wandb: 
+wandb: 🚀 View run full_v3_p30_fold1 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/8toz0upe
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260422_121335-8toz0upe/logs
+  Best val acc: 75.0%
+
+Fold 2/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients (augment=True)...
+  [!] Skipped 2 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 540
+[ACDCSliceDataset] Scanning 20 patients (augment=False)...
+  [!] Skipped 3 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 135
+  Registration net frozen for first 20 epochs
+wandb: setting up run z0wx6joh
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260422_150657-z0wx6joh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v3_p30_fold2
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/z0wx6joh
+  [Fold 2 | Ep   1/120] loss=1.618 train_acc=22.4% val_acc=20.0% val_loss=1.649 (51s)
+  [Fold 2 | Ep   2/120] loss=1.608 train_acc=20.0% val_acc=20.0% val_loss=1.646 (54s)
+  [Fold 2 | Ep   3/120] loss=1.589 train_acc=21.7% val_acc=25.0% val_loss=1.639 (56s)
+  [Fold 2 | Ep   4/120] loss=1.574 train_acc=23.3% val_acc=25.0% val_loss=1.629 (39s)
+  [Fold 2 | Ep   5/120] loss=1.573 train_acc=22.6% val_acc=25.0% val_loss=1.617 (47s)
+  [Fold 2 | Ep   6/120] loss=1.552 train_acc=23.7% val_acc=20.0% val_loss=1.602 (55s)
+  [Fold 2 | Ep   7/120] loss=1.542 train_acc=26.9% val_acc=25.0% val_loss=1.595 (59s)
+  [Fold 2 | Ep   8/120] loss=1.519 train_acc=26.9% val_acc=25.0% val_loss=1.582 (88s)
+  [Fold 2 | Ep   9/120] loss=1.507 train_acc=29.8% val_acc=20.0% val_loss=1.567 (57s)
+  [Fold 2 | Ep  10/120] loss=1.504 train_acc=29.6% val_acc=20.0% val_loss=1.560 (51s)
+  [Fold 2 | Ep  11/120] loss=1.495 train_acc=31.3% val_acc=15.0% val_loss=1.552 (94s)
+  [Fold 2 | Ep  12/120] loss=1.480 train_acc=29.8% val_acc=20.0% val_loss=1.540 (50s)
+  [Fold 2 | Ep  13/120] loss=1.470 train_acc=31.9% val_acc=20.0% val_loss=1.526 (56s)
+  [Fold 2 | Ep  14/120] loss=1.448 train_acc=36.1% val_acc=20.0% val_loss=1.517 (63s)
+  [Fold 2 | Ep  15/120] loss=1.433 train_acc=34.3% val_acc=25.0% val_loss=1.503 (48s)
+  [Fold 2 | Ep  16/120] loss=1.442 train_acc=36.5% val_acc=25.0% val_loss=1.493 (51s)
+  [Fold 2 | Ep  17/120] loss=1.422 train_acc=37.2% val_acc=25.0% val_loss=1.486 (55s)
+  [Fold 2 | Ep  18/120] loss=1.417 train_acc=37.6% val_acc=30.0% val_loss=1.472 (56s)
+  [Fold 2 | Ep  19/120] loss=1.403 train_acc=39.3% val_acc=35.0% val_loss=1.465 (44s)
+  [Fold 2 | Ep  20/120] loss=1.396 train_acc=38.5% val_acc=40.0% val_loss=1.452 (56s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 2 | Ep  21/120] loss=1.390 train_acc=40.0% val_acc=35.0% val_loss=1.444 (64s)
+  [Fold 2 | Ep  22/120] loss=1.371 train_acc=43.5% val_acc=35.0% val_loss=1.432 (59s)
+  [Fold 2 | Ep  23/120] loss=1.373 train_acc=42.2% val_acc=50.0% val_loss=1.419 (52s)
+  [Fold 2 | Ep  24/120] loss=1.358 train_acc=44.4% val_acc=50.0% val_loss=1.407 (66s)
+  [Fold 2 | Ep  25/120] loss=1.333 train_acc=49.6% val_acc=50.0% val_loss=1.399 (61s)
+  [Fold 2 | Ep  26/120] loss=1.302 train_acc=47.6% val_acc=50.0% val_loss=1.356 (45s)
+  [Fold 2 | Ep  27/120] loss=1.248 train_acc=53.3% val_acc=50.0% val_loss=1.351 (66s)
+  [Fold 2 | Ep  28/120] loss=1.229 train_acc=52.6% val_acc=55.0% val_loss=1.299 (75s)
+  [Fold 2 | Ep  29/120] loss=1.190 train_acc=54.4% val_acc=55.0% val_loss=1.356 (43s)
+  [Fold 2 | Ep  30/120] loss=1.183 train_acc=53.1% val_acc=55.0% val_loss=1.313 (67s)
+  [Fold 2 | Ep  31/120] loss=1.172 train_acc=54.4% val_acc=50.0% val_loss=1.363 (63s)
+  [Fold 2 | Ep  32/120] loss=1.149 train_acc=57.6% val_acc=55.0% val_loss=1.303 (67s)
+  [Fold 2 | Ep  33/120] loss=1.129 train_acc=58.9% val_acc=50.0% val_loss=1.387 (67s)
+  [Fold 2 | Ep  34/120] loss=1.136 train_acc=58.7% val_acc=55.0% val_loss=1.285 (140s)
+  [Fold 2 | Ep  35/120] loss=1.148 train_acc=58.9% val_acc=55.0% val_loss=1.307 (55s)
+  [Fold 2 | Ep  36/120] loss=1.119 train_acc=59.1% val_acc=55.0% val_loss=1.333 (65s)
+  [Fold 2 | Ep  37/120] loss=1.111 train_acc=58.7% val_acc=55.0% val_loss=1.308 (61s)
+  [Fold 2 | Ep  38/120] loss=1.117 train_acc=60.9% val_acc=60.0% val_loss=1.345 (68s)
+  [Fold 2 | Ep  39/120] loss=1.077 train_acc=62.8% val_acc=55.0% val_loss=1.394 (47s)
+  [Fold 2 | Ep  40/120] loss=1.105 train_acc=60.4% val_acc=55.0% val_loss=1.364 (46s)
+  [Fold 2 | Ep  41/120] loss=1.063 train_acc=63.1% val_acc=55.0% val_loss=1.365 (41s)
+  [Fold 2 | Ep  42/120] loss=1.083 train_acc=63.5% val_acc=50.0% val_loss=1.337 (30s)
+  [Fold 2 | Ep  43/120] loss=1.063 train_acc=64.6% val_acc=55.0% val_loss=1.381 (50s)
+  [Fold 2 | Ep  44/120] loss=1.069 train_acc=61.3% val_acc=50.0% val_loss=1.358 (44s)
+  [Fold 2 | Ep  45/120] loss=1.023 train_acc=67.6% val_acc=55.0% val_loss=1.317 (46s)
+  [Fold 2 | Ep  46/120] loss=1.021 train_acc=70.2% val_acc=65.0% val_loss=1.261 (45s)
+  [Fold 2 | Ep  47/120] loss=1.034 train_acc=68.3% val_acc=50.0% val_loss=1.352 (65s)
+  [Fold 2 | Ep  48/120] loss=0.993 train_acc=67.0% val_acc=65.0% val_loss=1.284 (119s)
+  [Fold 2 | Ep  49/120] loss=0.981 train_acc=69.4% val_acc=50.0% val_loss=1.366 (51s)
+  [Fold 2 | Ep  50/120] loss=0.971 train_acc=71.3% val_acc=55.0% val_loss=1.340 (67s)
+  [Fold 2 | Ep  51/120] loss=0.975 train_acc=68.1% val_acc=65.0% val_loss=1.253 (126s)
+  [Fold 2 | Ep  52/120] loss=0.975 train_acc=68.1% val_acc=70.0% val_loss=1.282 (43s)
+  [Fold 2 | Ep  53/120] loss=0.938 train_acc=71.3% val_acc=60.0% val_loss=1.406 (65s)
+  [Fold 2 | Ep  54/120] loss=0.916 train_acc=72.2% val_acc=70.0% val_loss=1.302 (65s)
+  [Fold 2 | Ep  55/120] loss=0.960 train_acc=68.9% val_acc=60.0% val_loss=1.367 (42s)
+  [Fold 2 | Ep  56/120] loss=0.916 train_acc=73.0% val_acc=60.0% val_loss=1.423 (91s)
+  [Fold 2 | Ep  57/120] loss=0.914 train_acc=73.3% val_acc=65.0% val_loss=1.555 (64s)
+  [Fold 2 | Ep  58/120] loss=0.907 train_acc=72.2% val_acc=60.0% val_loss=1.411 (51s)
+  [Fold 2 | Ep  59/120] loss=0.891 train_acc=71.3% val_acc=55.0% val_loss=1.436 (82s)
+  [Fold 2 | Ep  60/120] loss=0.898 train_acc=73.1% val_acc=70.0% val_loss=1.382 (62s)
+  [Fold 2 | Ep  61/120] loss=0.883 train_acc=74.3% val_acc=55.0% val_loss=1.313 (48s)
+  [Fold 2 | Ep  62/120] loss=0.838 train_acc=74.6% val_acc=60.0% val_loss=1.396 (56s)
+  [Fold 2 | Ep  63/120] loss=0.855 train_acc=75.7% val_acc=60.0% val_loss=1.521 (67s)
+  [Fold 2 | Ep  64/120] loss=0.876 train_acc=73.0% val_acc=60.0% val_loss=1.434 (55s)
+  [Fold 2 | Ep  65/120] loss=0.844 train_acc=76.3% val_acc=50.0% val_loss=1.497 (54s)
+  [Fold 2 | Ep  66/120] loss=0.833 train_acc=77.4% val_acc=65.0% val_loss=1.514 (64s)
+  [Fold 2 | Ep  67/120] loss=0.853 train_acc=76.5% val_acc=70.0% val_loss=1.340 (76s)
+  [Fold 2 | Ep  68/120] loss=0.814 train_acc=78.0% val_acc=55.0% val_loss=1.360 (44s)
+  [Fold 2 | Ep  69/120] loss=0.787 train_acc=80.7% val_acc=55.0% val_loss=1.421 (63s)
+  [Fold 2 | Ep  70/120] loss=0.784 train_acc=82.8% val_acc=50.0% val_loss=1.372 (66s)
+  [Fold 2 | Ep  71/120] loss=0.785 train_acc=81.1% val_acc=60.0% val_loss=1.355 (46s)
+  [Fold 2 | Ep  72/120] loss=0.774 train_acc=81.3% val_acc=60.0% val_loss=1.406 (80s)
+  [Fold 2 | Ep  73/120] loss=0.795 train_acc=77.2% val_acc=65.0% val_loss=1.461 (64s)
+  [Fold 2 | Ep  74/120] loss=0.768 train_acc=81.7% val_acc=60.0% val_loss=1.502 (48s)
+  [Fold 2 | Ep  75/120] loss=0.747 train_acc=83.3% val_acc=65.0% val_loss=1.369 (135s)
+  [Fold 2 | Ep  76/120] loss=0.741 train_acc=82.4% val_acc=65.0% val_loss=1.352 (57s)
+  [Fold 2 | Ep  77/120] loss=0.755 train_acc=81.9% val_acc=55.0% val_loss=1.463 (48s)
+  [Fold 2 | Ep  78/120] loss=0.733 train_acc=82.6% val_acc=40.0% val_loss=1.431 (102s)
+  [Fold 2 | Ep  79/120] loss=0.702 train_acc=84.4% val_acc=60.0% val_loss=1.454 (59s)
+  [Fold 2 | Ep  80/120] loss=0.737 train_acc=81.7% val_acc=60.0% val_loss=1.442 (49s)
+  [Fold 2 | Ep  81/120] loss=0.722 train_acc=83.7% val_acc=65.0% val_loss=1.429 (64s)
+  Early stopping at epoch 81 (val_loss hasn't improved for 30 epochs)
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading history steps 80-80, summary, console lines 81-82
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▄▅▅▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇██
+wandb:             lr ████████▇▇▇▇▇▇▇▆▆▆▆▆▅▅▅▅▄▄▄▄▃▃▃▃▃▂▂▂▂▁▁▁
+wandb:      train/acc ▁▁▁▁▂▂▂▃▃▃▃▃▃▃▄▅▅▅▅▆▅▆▆▆▆▇▇▇▇▇▇▇▇▇█▇████
+wandb: train/cls_loss ████▇▇▇▆▆▆▆▆▅▅▅▄▄▄▄▄▄▄▄▄▃▃▃▂▃▂▂▂▂▁▁▁▁▁▁▁
+wandb:     train/loss ████▇▇▇▇▇▇▆▆▆▆▆▅▄▄▄▄▄▃▃▃▃▃▃▃▃▃▂▂▂▂▂▂▂▁▁▁
+wandb: train/reg_loss ▃▄▄▅▃▅▆▄▃▄▂▄▁▃▅▅▁▄▃▂▅▄▃▂▃▃▂▄▃▄▄█▅▃▅▃▆▄▃▇
+wandb:        val/acc ▁▁▂▂▁▁▂▂▄▃▅▅▆▆▆▇▆▆▅▇▅▆▇█▇▇▇▆▇▇▅▇█▆▅▇▇▇▆▇
+wandb:       val/loss ██▇▇▆▆▆▆▅▄▃▂▂▁▁▂▃▃▃▂▂▂▁▃▃▆▃▄▃▂▅▂▂▃▂▃▂▄▄▄
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.7
+wandb:          epoch 81
+wandb:             lr 2e-05
+wandb:      train/acc 0.83704
+wandb: train/cls_loss 0.68774
+wandb:     train/loss 0.72205
+wandb: train/reg_loss 0.34307
+wandb:        val/acc 0.65
+wandb:       val/loss 1.42934
+wandb: 
+wandb: 🚀 View run full_v3_p30_fold2 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/z0wx6joh
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260422_150657-z0wx6joh/logs
+  Best val acc: 70.0%
+
+Fold 3/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients (augment=True)...
+  [!] Skipped 5 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 542
+[ACDCSliceDataset] Scanning 20 patients (augment=False)...
+[ACDCSliceDataset] Total valid slices: 133
+  Registration net frozen for first 20 epochs
+wandb: setting up run 715m5bfs
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260422_163023-715m5bfs
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v3_p30_fold3
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/715m5bfs
+  [Fold 3 | Ep   1/120] loss=1.623 train_acc=17.5% val_acc=20.0% val_loss=1.654 (75s)
+  [Fold 3 | Ep   2/120] loss=1.601 train_acc=20.3% val_acc=20.0% val_loss=1.656 (28s)
+  [Fold 3 | Ep   3/120] loss=1.586 train_acc=22.7% val_acc=20.0% val_loss=1.639 (43s)
+  [Fold 3 | Ep   4/120] loss=1.578 train_acc=21.4% val_acc=20.0% val_loss=1.636 (47s)
+  [Fold 3 | Ep   5/120] loss=1.574 train_acc=21.2% val_acc=25.0% val_loss=1.630 (59s)
+  [Fold 3 | Ep   6/120] loss=1.550 train_acc=22.5% val_acc=20.0% val_loss=1.622 (40s)
+  [Fold 3 | Ep   7/120] loss=1.554 train_acc=22.7% val_acc=30.0% val_loss=1.604 (59s)
+  [Fold 3 | Ep   8/120] loss=1.555 train_acc=22.9% val_acc=30.0% val_loss=1.593 (98s)
+  [Fold 3 | Ep   9/120] loss=1.526 train_acc=25.1% val_acc=30.0% val_loss=1.593 (43s)
+  [Fold 3 | Ep  10/120] loss=1.521 train_acc=24.4% val_acc=30.0% val_loss=1.579 (50s)
+  [Fold 3 | Ep  11/120] loss=1.524 train_acc=25.8% val_acc=35.0% val_loss=1.565 (54s)
+  [Fold 3 | Ep  12/120] loss=1.512 train_acc=26.9% val_acc=35.0% val_loss=1.567 (85s)
+  [Fold 3 | Ep  13/120] loss=1.499 train_acc=28.0% val_acc=40.0% val_loss=1.543 (28s)
+  [Fold 3 | Ep  14/120] loss=1.477 train_acc=32.7% val_acc=40.0% val_loss=1.537 (51s)
+  [Fold 3 | Ep  15/120] loss=1.472 train_acc=30.4% val_acc=40.0% val_loss=1.528 (74s)
+  [Fold 3 | Ep  16/120] loss=1.467 train_acc=35.4% val_acc=45.0% val_loss=1.517 (55s)
+  [Fold 3 | Ep  17/120] loss=1.468 train_acc=32.5% val_acc=45.0% val_loss=1.505 (34s)
+  [Fold 3 | Ep  18/120] loss=1.455 train_acc=35.6% val_acc=45.0% val_loss=1.497 (57s)
+  [Fold 3 | Ep  19/120] loss=1.450 train_acc=36.2% val_acc=45.0% val_loss=1.480 (87s)
+  [Fold 3 | Ep  20/120] loss=1.428 train_acc=39.3% val_acc=45.0% val_loss=1.471 (49s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 3 | Ep  21/120] loss=1.407 train_acc=40.0% val_acc=45.0% val_loss=1.461 (61s)
+  [Fold 3 | Ep  22/120] loss=1.409 train_acc=40.4% val_acc=50.0% val_loss=1.452 (50s)
+  [Fold 3 | Ep  23/120] loss=1.390 train_acc=44.6% val_acc=45.0% val_loss=1.444 (48s)
+  [Fold 3 | Ep  24/120] loss=1.380 train_acc=41.3% val_acc=45.0% val_loss=1.435 (46s)
+  [Fold 3 | Ep  25/120] loss=1.370 train_acc=45.4% val_acc=45.0% val_loss=1.417 (63s)
+  [Fold 3 | Ep  26/120] loss=1.350 train_acc=46.1% val_acc=50.0% val_loss=1.392 (44s)
+  [Fold 3 | Ep  27/120] loss=1.310 train_acc=47.6% val_acc=50.0% val_loss=1.344 (43s)
+  [Fold 3 | Ep  28/120] loss=1.244 train_acc=55.7% val_acc=50.0% val_loss=1.371 (53s)
+  [Fold 3 | Ep  29/120] loss=1.233 train_acc=58.7% val_acc=45.0% val_loss=1.344 (54s)
+  [Fold 3 | Ep  30/120] loss=1.202 train_acc=59.6% val_acc=40.0% val_loss=1.388 (47s)
+  [Fold 3 | Ep  31/120] loss=1.163 train_acc=60.7% val_acc=55.0% val_loss=1.351 (51s)
+  [Fold 3 | Ep  32/120] loss=1.176 train_acc=59.2% val_acc=45.0% val_loss=1.377 (81s)
+  [Fold 3 | Ep  33/120] loss=1.142 train_acc=62.4% val_acc=45.0% val_loss=1.335 (52s)
+  [Fold 3 | Ep  34/120] loss=1.120 train_acc=63.1% val_acc=50.0% val_loss=1.388 (53s)
+  [Fold 3 | Ep  35/120] loss=1.120 train_acc=62.2% val_acc=45.0% val_loss=1.390 (54s)
+  [Fold 3 | Ep  36/120] loss=1.132 train_acc=61.1% val_acc=40.0% val_loss=1.409 (54s)
+  [Fold 3 | Ep  37/120] loss=1.079 train_acc=64.4% val_acc=40.0% val_loss=1.443 (48s)
+  [Fold 3 | Ep  38/120] loss=1.049 train_acc=66.2% val_acc=40.0% val_loss=1.454 (52s)
+  [Fold 3 | Ep  39/120] loss=1.079 train_acc=62.9% val_acc=50.0% val_loss=1.371 (131s)
+  [Fold 3 | Ep  40/120] loss=1.048 train_acc=65.7% val_acc=40.0% val_loss=1.537 (64s)
+  [Fold 3 | Ep  41/120] loss=1.075 train_acc=62.0% val_acc=45.0% val_loss=1.462 (42s)
+  [Fold 3 | Ep  42/120] loss=1.051 train_acc=64.6% val_acc=45.0% val_loss=1.414 (52s)
+  [Fold 3 | Ep  43/120] loss=1.038 train_acc=64.8% val_acc=35.0% val_loss=1.512 (58s)
+  [Fold 3 | Ep  44/120] loss=1.013 train_acc=66.2% val_acc=35.0% val_loss=1.502 (68s)
+  [Fold 3 | Ep  45/120] loss=1.003 train_acc=67.5% val_acc=35.0% val_loss=1.509 (45s)
+  [Fold 3 | Ep  46/120] loss=0.980 train_acc=67.3% val_acc=45.0% val_loss=1.483 (61s)
+  [Fold 3 | Ep  47/120] loss=0.972 train_acc=67.9% val_acc=40.0% val_loss=1.491 (69s)
+  [Fold 3 | Ep  48/120] loss=0.968 train_acc=68.6% val_acc=35.0% val_loss=1.587 (87s)
+  [Fold 3 | Ep  49/120] loss=0.946 train_acc=70.1% val_acc=45.0% val_loss=1.459 (54s)
+  [Fold 3 | Ep  50/120] loss=0.952 train_acc=69.0% val_acc=40.0% val_loss=1.583 (68s)
+  [Fold 3 | Ep  51/120] loss=0.951 train_acc=67.2% val_acc=35.0% val_loss=1.671 (67s)
+  [Fold 3 | Ep  52/120] loss=0.911 train_acc=69.4% val_acc=35.0% val_loss=1.686 (48s)
+  [Fold 3 | Ep  53/120] loss=0.914 train_acc=69.6% val_acc=35.0% val_loss=1.723 (68s)
+  [Fold 3 | Ep  54/120] loss=0.894 train_acc=70.7% val_acc=45.0% val_loss=1.487 (66s)
+  [Fold 3 | Ep  55/120] loss=0.872 train_acc=69.7% val_acc=45.0% val_loss=1.588 (56s)
+  [Fold 3 | Ep  56/120] loss=0.909 train_acc=70.3% val_acc=50.0% val_loss=1.671 (63s)
+  [Fold 3 | Ep  57/120] loss=0.859 train_acc=73.6% val_acc=40.0% val_loss=1.664 (102s)
+  [Fold 3 | Ep  58/120] loss=0.867 train_acc=71.2% val_acc=45.0% val_loss=1.666 (52s)
+  [Fold 3 | Ep  59/120] loss=0.857 train_acc=72.0% val_acc=40.0% val_loss=1.605 (63s)
+  [Fold 3 | Ep  60/120] loss=0.881 train_acc=72.7% val_acc=40.0% val_loss=1.763 (131s)
+  [Fold 3 | Ep  61/120] loss=0.857 train_acc=73.4% val_acc=40.0% val_loss=1.737 (59s)
+  [Fold 3 | Ep  62/120] loss=0.818 train_acc=75.6% val_acc=35.0% val_loss=1.868 (60s)
+  [Fold 3 | Ep  63/120] loss=0.829 train_acc=74.7% val_acc=30.0% val_loss=1.723 (67s)
+  Early stopping at epoch 63 (val_loss hasn't improved for 30 epochs)
+wandb: updating run metadata
+wandb: updating run metadata; uploading history steps 62-62, summary, console lines 63-64
+wandb: uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: uploading data
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇████
+wandb:             lr ██████████▇▇▇▇▇▇▇▇▇▆▆▆▆▅▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▁
+wandb:      train/acc ▁▁▂▁▁▂▂▂▂▂▂▃▃▃▃▄▄▄▄▅▆▆▆▆▇▇▇▆▇▇▇▇▇▇▇█▇███
+wandb: train/cls_loss ███▇▇▇▇▇▇▇▆▆▆▆▆▅▅▄▄▄▃▃▃▃▃▃▃▂▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:     train/loss █████▇▇▇▇▇▇▆▆▆▆▆▅▅▄▄▄▄▃▃▃▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁
+wandb: train/reg_loss ▅▄▅▂▅▂▇▄▃▅▃▁▁▂▃▃▂▂▃▃▂▅▅▃▆▃▃▄█▄▅▆▆▄▅▅▅▅▃▅
+wandb:        val/acc ▁▁▂▃▃▃▄▆▆▆▇▆▆▆▇▆█▆▇▆▅▇▆▆▄▄▆▅▄▆▄▄▄▆▆▅▆▅▅▃
+wandb:       val/loss ▆▆▆▆▆▅▅▅▅▄▄▄▃▃▃▂▂▁▁▂▂▂▂▃▃▄▃▃▅▃▇▇▃▅▆▆▅██▇
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.55
+wandb:          epoch 63
+wandb:             lr 5e-05
+wandb:      train/acc 0.74723
+wandb: train/cls_loss 0.79586
+wandb:     train/loss 0.82868
+wandb: train/reg_loss 0.32822
+wandb:        val/acc 0.3
+wandb:       val/loss 1.72277
+wandb: 
+wandb: 🚀 View run full_v3_p30_fold3 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/715m5bfs
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260422_163023-715m5bfs/logs
+  Best val acc: 55.0%
+
+Fold 4/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients (augment=True)...
+  [!] Skipped 4 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 542
+[ACDCSliceDataset] Scanning 20 patients (augment=False)...
+  [!] Skipped 1 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 133
+  Registration net frozen for first 20 epochs
+wandb: setting up run ioy57sns
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260422_173324-ioy57sns
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v3_p30_fold4
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/ioy57sns
+  [Fold 4 | Ep   1/120] loss=1.631 train_acc=23.8% val_acc=20.0% val_loss=1.639 (48s)
+  [Fold 4 | Ep   2/120] loss=1.593 train_acc=20.8% val_acc=20.0% val_loss=1.631 (41s)
+  [Fold 4 | Ep   3/120] loss=1.575 train_acc=22.1% val_acc=25.0% val_loss=1.623 (85s)
+  [Fold 4 | Ep   4/120] loss=1.568 train_acc=23.2% val_acc=25.0% val_loss=1.610 (59s)
+  [Fold 4 | Ep   5/120] loss=1.548 train_acc=25.6% val_acc=20.0% val_loss=1.597 (46s)
+  [Fold 4 | Ep   6/120] loss=1.540 train_acc=27.3% val_acc=20.0% val_loss=1.585 (72s)
+  [Fold 4 | Ep   7/120] loss=1.536 train_acc=28.4% val_acc=20.0% val_loss=1.577 (58s)
+  [Fold 4 | Ep   8/120] loss=1.514 train_acc=30.6% val_acc=20.0% val_loss=1.566 (89s)
+  [Fold 4 | Ep   9/120] loss=1.510 train_acc=28.4% val_acc=20.0% val_loss=1.556 (53s)
+  [Fold 4 | Ep  10/120] loss=1.497 train_acc=29.3% val_acc=20.0% val_loss=1.550 (54s)
+  [Fold 4 | Ep  11/120] loss=1.484 train_acc=29.5% val_acc=25.0% val_loss=1.529 (57s)
+  [Fold 4 | Ep  12/120] loss=1.469 train_acc=31.7% val_acc=25.0% val_loss=1.519 (117s)
+  [Fold 4 | Ep  13/120] loss=1.462 train_acc=33.9% val_acc=25.0% val_loss=1.504 (63s)
+  [Fold 4 | Ep  14/120] loss=1.460 train_acc=31.9% val_acc=25.0% val_loss=1.495 (131s)
+  [Fold 4 | Ep  15/120] loss=1.428 train_acc=33.9% val_acc=25.0% val_loss=1.487 (43s)
+  [Fold 4 | Ep  16/120] loss=1.419 train_acc=34.9% val_acc=30.0% val_loss=1.470 (57s)
+  [Fold 4 | Ep  17/120] loss=1.411 train_acc=38.2% val_acc=30.0% val_loss=1.458 (62s)
+  [Fold 4 | Ep  18/120] loss=1.405 train_acc=40.4% val_acc=25.0% val_loss=1.455 (47s)
+  [Fold 4 | Ep  19/120] loss=1.392 train_acc=38.6% val_acc=35.0% val_loss=1.436 (74s)
+  [Fold 4 | Ep  20/120] loss=1.380 train_acc=43.9% val_acc=30.0% val_loss=1.431 (59s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 4 | Ep  21/120] loss=1.364 train_acc=41.0% val_acc=45.0% val_loss=1.412 (63s)
+  [Fold 4 | Ep  22/120] loss=1.354 train_acc=45.8% val_acc=40.0% val_loss=1.402 (49s)
+  [Fold 4 | Ep  23/120] loss=1.334 train_acc=47.8% val_acc=40.0% val_loss=1.394 (107s)
+  [Fold 4 | Ep  24/120] loss=1.301 train_acc=48.2% val_acc=35.0% val_loss=1.369 (56s)
+  [Fold 4 | Ep  25/120] loss=1.265 train_acc=50.4% val_acc=40.0% val_loss=1.347 (55s)
+  [Fold 4 | Ep  26/120] loss=1.256 train_acc=55.2% val_acc=60.0% val_loss=1.313 (125s)
+  [Fold 4 | Ep  27/120] loss=1.223 train_acc=55.9% val_acc=45.0% val_loss=1.270 (59s)
+  [Fold 4 | Ep  28/120] loss=1.191 train_acc=56.1% val_acc=50.0% val_loss=1.381 (50s)
+  [Fold 4 | Ep  29/120] loss=1.193 train_acc=56.3% val_acc=55.0% val_loss=1.290 (70s)
+  [Fold 4 | Ep  30/120] loss=1.176 train_acc=57.0% val_acc=60.0% val_loss=1.248 (67s)
+  [Fold 4 | Ep  31/120] loss=1.168 train_acc=58.1% val_acc=55.0% val_loss=1.294 (52s)
+  [Fold 4 | Ep  32/120] loss=1.153 train_acc=55.4% val_acc=65.0% val_loss=1.234 (67s)
+  [Fold 4 | Ep  33/120] loss=1.139 train_acc=57.2% val_acc=65.0% val_loss=1.220 (118s)
+  [Fold 4 | Ep  34/120] loss=1.126 train_acc=60.0% val_acc=70.0% val_loss=1.248 (62s)
+  [Fold 4 | Ep  35/120] loss=1.112 train_acc=61.6% val_acc=70.0% val_loss=1.260 (67s)
+  [Fold 4 | Ep  36/120] loss=1.115 train_acc=62.0% val_acc=50.0% val_loss=1.364 (77s)
+  [Fold 4 | Ep  37/120] loss=1.094 train_acc=63.7% val_acc=50.0% val_loss=1.437 (62s)
+  [Fold 4 | Ep  38/120] loss=1.092 train_acc=61.4% val_acc=60.0% val_loss=1.252 (67s)
+  [Fold 4 | Ep  39/120] loss=1.065 train_acc=61.8% val_acc=65.0% val_loss=1.212 (92s)
+  [Fold 4 | Ep  40/120] loss=1.070 train_acc=64.6% val_acc=55.0% val_loss=1.258 (61s)
+  [Fold 4 | Ep  41/120] loss=1.056 train_acc=64.6% val_acc=65.0% val_loss=1.215 (72s)
+  [Fold 4 | Ep  42/120] loss=1.069 train_acc=63.8% val_acc=45.0% val_loss=1.470 (68s)
+  [Fold 4 | Ep  43/120] loss=1.076 train_acc=60.7% val_acc=50.0% val_loss=1.384 (50s)
+  [Fold 4 | Ep  44/120] loss=1.048 train_acc=64.4% val_acc=55.0% val_loss=1.355 (68s)
+  [Fold 4 | Ep  45/120] loss=1.066 train_acc=64.6% val_acc=55.0% val_loss=1.305 (68s)
+  [Fold 4 | Ep  46/120] loss=1.005 train_acc=66.1% val_acc=60.0% val_loss=1.355 (45s)
+  [Fold 4 | Ep  47/120] loss=1.016 train_acc=64.8% val_acc=50.0% val_loss=1.353 (66s)
+  [Fold 4 | Ep  48/120] loss=1.001 train_acc=69.6% val_acc=55.0% val_loss=1.299 (110s)
+  [Fold 4 | Ep  49/120] loss=0.956 train_acc=71.4% val_acc=45.0% val_loss=1.354 (44s)
+  [Fold 4 | Ep  50/120] loss=0.945 train_acc=69.4% val_acc=55.0% val_loss=1.385 (93s)
+  [Fold 4 | Ep  51/120] loss=0.947 train_acc=70.8% val_acc=55.0% val_loss=1.472 (94s)
+  [Fold 4 | Ep  52/120] loss=0.961 train_acc=67.2% val_acc=50.0% val_loss=1.425 (75s)
+  [Fold 4 | Ep  53/120] loss=0.917 train_acc=70.5% val_acc=55.0% val_loss=1.393 (65s)
+  [Fold 4 | Ep  54/120] loss=0.887 train_acc=72.9% val_acc=40.0% val_loss=1.387 (99s)
+  [Fold 4 | Ep  55/120] loss=0.888 train_acc=73.6% val_acc=65.0% val_loss=1.403 (80s)
+  [Fold 4 | Ep  56/120] loss=0.902 train_acc=72.9% val_acc=60.0% val_loss=1.340 (65s)
+  [Fold 4 | Ep  57/120] loss=0.871 train_acc=74.0% val_acc=55.0% val_loss=1.429 (88s)
+  [Fold 4 | Ep  58/120] loss=0.820 train_acc=76.2% val_acc=55.0% val_loss=1.439 (100s)
+  [Fold 4 | Ep  59/120] loss=0.863 train_acc=74.2% val_acc=65.0% val_loss=1.475 (62s)
+  [Fold 4 | Ep  60/120] loss=0.833 train_acc=75.6% val_acc=55.0% val_loss=1.471 (64s)
+  [Fold 4 | Ep  61/120] loss=0.858 train_acc=74.0% val_acc=55.0% val_loss=1.442 (58s)
+  [Fold 4 | Ep  62/120] loss=0.829 train_acc=75.5% val_acc=55.0% val_loss=1.536 (134s)
+  [Fold 4 | Ep  63/120] loss=0.851 train_acc=75.6% val_acc=45.0% val_loss=1.600 (95s)
+  [Fold 4 | Ep  64/120] loss=0.828 train_acc=76.4% val_acc=50.0% val_loss=1.521 (65s)
+  [Fold 4 | Ep  65/120] loss=0.806 train_acc=79.2% val_acc=40.0% val_loss=1.678 (66s)
+  [Fold 4 | Ep  66/120] loss=0.792 train_acc=80.8% val_acc=60.0% val_loss=1.509 (58s)
+  [Fold 4 | Ep  67/120] loss=0.807 train_acc=79.3% val_acc=65.0% val_loss=1.502 (53s)
+  [Fold 4 | Ep  68/120] loss=0.757 train_acc=79.9% val_acc=55.0% val_loss=1.636 (69s)
+  [Fold 4 | Ep  69/120] loss=0.801 train_acc=79.0% val_acc=50.0% val_loss=1.646 (83s)
+  Early stopping at epoch 69 (val_loss hasn't improved for 30 epochs)
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading history steps 68-68, summary, console lines 69-70
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▂▂▂▂▂▂▂▂▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇███
+wandb:             lr █████████▇▇▇▇▇▇▆▆▆▆▆▅▅▄▄▄▄▄▄▃▃▃▃▂▂▂▂▂▁▁▁
+wandb:      train/acc ▁▁▂▂▂▂▂▂▃▂▃▃▃▄▅▅▅▅▅▅▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇███
+wandb: train/cls_loss ████▇▇▇▇▇▇▆▆▆▆▅▅▅▅▄▄▄▄▄▄▃▃▃▃▃▃▂▂▂▂▂▂▂▂▁▁
+wandb:     train/loss █████▇▇▇▇▇▆▆▆▆▆▅▅▅▅▄▄▄▄▄▃▃▃▃▃▂▂▂▂▂▂▁▂▁▁▁
+wandb: train/reg_loss ▅▃▄▅▅▄▃▁▄▃▆▄▄▃▄▇▄▄█▃█▃▄▆▂▅▇▅▁▃▄▆▅▆▄▆▆▂▄▂
+wandb:        val/acc ▁▁▁▁▁▂▂▂▂▂▂▄▄▄▄▇█▅▅▇▆▄▅▆▇▄▆▆▆▄▇▆▇▆▆▄▄▇▇▅
+wandb:       val/loss ███▇▇▆▆▆▆▆▅▅▅▅▄▄▄▃▃▂▂▁▂▃▅▁▁▄▃▃▄▅▄▄▃▅▅▆▆▆
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.7
+wandb:          epoch 69
+wandb:             lr 4e-05
+wandb:      train/acc 0.78967
+wandb: train/cls_loss 0.7678
+wandb:     train/loss 0.80053
+wandb: train/reg_loss 0.32733
+wandb:        val/acc 0.5
+wandb:       val/loss 1.64583
+wandb: 
+wandb: 🚀 View run full_v3_p30_fold4 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/ioy57sns
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260422_173324-ioy57sns/logs
+  Best val acc: 70.0%
+
+Fold 5/5: 80 train / 20 val patients
+[ACDCSliceDataset] Scanning 80 patients (augment=True)...
+  [!] Skipped 5 slices with < 50 myocardium pixels
+[ACDCSliceDataset] Total valid slices: 537
+[ACDCSliceDataset] Scanning 20 patients (augment=False)...
+[ACDCSliceDataset] Total valid slices: 138
+  Registration net frozen for first 20 epochs
+wandb: setting up run uuvqw4ho
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/amo/CINEMRI/src/wandb/run-20260422_185518-uuvqw4ho
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run full_v3_p30_fold5
+wandb: ⭐️ View project at https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: 🚀 View run at https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/uuvqw4ho
+  [Fold 5 | Ep   1/120] loss=1.610 train_acc=21.0% val_acc=20.0% val_loss=1.653 (96s)
+  [Fold 5 | Ep   2/120] loss=1.583 train_acc=21.6% val_acc=20.0% val_loss=1.653 (80s)
+  [Fold 5 | Ep   3/120] loss=1.579 train_acc=23.3% val_acc=20.0% val_loss=1.644 (71s)
+  [Fold 5 | Ep   4/120] loss=1.556 train_acc=24.0% val_acc=25.0% val_loss=1.632 (116s)
+  [Fold 5 | Ep   5/120] loss=1.551 train_acc=25.5% val_acc=25.0% val_loss=1.617 (66s)
+  [Fold 5 | Ep   6/120] loss=1.541 train_acc=27.0% val_acc=25.0% val_loss=1.618 (42s)
+  [Fold 5 | Ep   7/120] loss=1.527 train_acc=27.2% val_acc=25.0% val_loss=1.610 (71s)
+  [Fold 5 | Ep   8/120] loss=1.524 train_acc=28.3% val_acc=25.0% val_loss=1.596 (67s)
+  [Fold 5 | Ep   9/120] loss=1.504 train_acc=30.4% val_acc=25.0% val_loss=1.582 (53s)
+  [Fold 5 | Ep  10/120] loss=1.501 train_acc=28.9% val_acc=25.0% val_loss=1.574 (55s)
+  [Fold 5 | Ep  11/120] loss=1.486 train_acc=30.9% val_acc=25.0% val_loss=1.565 (106s)
+  [Fold 5 | Ep  12/120] loss=1.468 train_acc=31.8% val_acc=30.0% val_loss=1.552 (54s)
+  [Fold 5 | Ep  13/120] loss=1.458 train_acc=33.9% val_acc=30.0% val_loss=1.540 (62s)
+  [Fold 5 | Ep  14/120] loss=1.461 train_acc=33.5% val_acc=35.0% val_loss=1.532 (64s)
+  [Fold 5 | Ep  15/120] loss=1.443 train_acc=34.8% val_acc=30.0% val_loss=1.522 (57s)
+  [Fold 5 | Ep  16/120] loss=1.431 train_acc=37.4% val_acc=35.0% val_loss=1.516 (50s)
+  [Fold 5 | Ep  17/120] loss=1.423 train_acc=37.6% val_acc=35.0% val_loss=1.498 (101s)
+  [Fold 5 | Ep  18/120] loss=1.407 train_acc=39.9% val_acc=35.0% val_loss=1.495 (60s)
+  [Fold 5 | Ep  19/120] loss=1.388 train_acc=39.9% val_acc=35.0% val_loss=1.478 (43s)
+  [Fold 5 | Ep  20/120] loss=1.372 train_acc=43.0% val_acc=35.0% val_loss=1.468 (65s)
+  [Unfreeze] Registration net added to optimizer at LR=1.00e-05
+  [Fold 5 | Ep  21/120] loss=1.384 train_acc=45.3% val_acc=40.0% val_loss=1.457 (89s)
+  [Fold 5 | Ep  22/120] loss=1.366 train_acc=45.4% val_acc=40.0% val_loss=1.447 (45s)
+  [Fold 5 | Ep  23/120] loss=1.335 train_acc=49.7% val_acc=40.0% val_loss=1.429 (115s)
+  [Fold 5 | Ep  24/120] loss=1.337 train_acc=47.9% val_acc=45.0% val_loss=1.396 (69s)
+  [Fold 5 | Ep  25/120] loss=1.301 train_acc=49.5% val_acc=45.0% val_loss=1.348 (59s)
+  [Fold 5 | Ep  26/120] loss=1.288 train_acc=54.0% val_acc=55.0% val_loss=1.314 (73s)
+  [Fold 5 | Ep  27/120] loss=1.242 train_acc=55.7% val_acc=55.0% val_loss=1.278 (100s)
+  [Fold 5 | Ep  28/120] loss=1.245 train_acc=52.9% val_acc=55.0% val_loss=1.277 (64s)
+  [Fold 5 | Ep  29/120] loss=1.225 train_acc=54.4% val_acc=55.0% val_loss=1.261 (84s)
+  [Fold 5 | Ep  30/120] loss=1.201 train_acc=54.0% val_acc=55.0% val_loss=1.276 (59s)
+  [Fold 5 | Ep  31/120] loss=1.207 train_acc=54.0% val_acc=55.0% val_loss=1.319 (61s)
+  [Fold 5 | Ep  32/120] loss=1.204 train_acc=52.5% val_acc=55.0% val_loss=1.245 (96s)
+  [Fold 5 | Ep  33/120] loss=1.176 train_acc=55.1% val_acc=50.0% val_loss=1.348 (108s)
+  [Fold 5 | Ep  34/120] loss=1.169 train_acc=55.9% val_acc=55.0% val_loss=1.271 (70s)
+  [Fold 5 | Ep  35/120] loss=1.196 train_acc=53.8% val_acc=55.0% val_loss=1.257 (185s)
+  [Fold 5 | Ep  36/120] loss=1.146 train_acc=57.9% val_acc=55.0% val_loss=1.272 (70s)
+  [Fold 5 | Ep  37/120] loss=1.140 train_acc=56.8% val_acc=55.0% val_loss=1.318 (74s)
+  [Fold 5 | Ep  38/120] loss=1.119 train_acc=58.5% val_acc=50.0% val_loss=1.326 (59s)
+  [Fold 5 | Ep  39/120] loss=1.118 train_acc=57.4% val_acc=55.0% val_loss=1.249 (66s)
+  [Fold 5 | Ep  40/120] loss=1.107 train_acc=59.6% val_acc=55.0% val_loss=1.290 (109s)
+  [Fold 5 | Ep  41/120] loss=1.083 train_acc=59.0% val_acc=55.0% val_loss=1.327 (66s)
+  [Fold 5 | Ep  42/120] loss=1.084 train_acc=59.2% val_acc=55.0% val_loss=1.311 (71s)
+  [Fold 5 | Ep  43/120] loss=1.131 train_acc=58.3% val_acc=45.0% val_loss=1.400 (94s)
+  [Fold 5 | Ep  44/120] loss=1.095 train_acc=58.7% val_acc=50.0% val_loss=1.335 (49s)
+  [Fold 5 | Ep  45/120] loss=1.060 train_acc=62.9% val_acc=55.0% val_loss=1.379 (50s)
+  [Fold 5 | Ep  46/120] loss=1.057 train_acc=63.3% val_acc=55.0% val_loss=1.320 (48s)
+  [Fold 5 | Ep  47/120] loss=1.049 train_acc=59.4% val_acc=50.0% val_loss=1.289 (56s)
+  [Fold 5 | Ep  48/120] loss=1.056 train_acc=59.6% val_acc=55.0% val_loss=1.238 (55s)
+  [Fold 5 | Ep  49/120] loss=1.049 train_acc=63.5% val_acc=50.0% val_loss=1.351 (73s)
+  [Fold 5 | Ep  50/120] loss=1.008 train_acc=64.1% val_acc=50.0% val_loss=1.341 (67s)
+  [Fold 5 | Ep  51/120] loss=1.015 train_acc=62.4% val_acc=45.0% val_loss=1.378 (53s)
+  [Fold 5 | Ep  52/120] loss=1.018 train_acc=65.5% val_acc=50.0% val_loss=1.341 (133s)
+  [Fold 5 | Ep  53/120] loss=1.010 train_acc=66.3% val_acc=40.0% val_loss=1.379 (61s)
+  [Fold 5 | Ep  54/120] loss=1.017 train_acc=64.6% val_acc=55.0% val_loss=1.321 (63s)
+  [Fold 5 | Ep  55/120] loss=0.991 train_acc=65.0% val_acc=55.0% val_loss=1.292 (74s)
+  [Fold 5 | Ep  56/120] loss=0.980 train_acc=66.9% val_acc=50.0% val_loss=1.253 (55s)
+  [Fold 5 | Ep  57/120] loss=0.974 train_acc=68.3% val_acc=55.0% val_loss=1.319 (125s)
+  [Fold 5 | Ep  58/120] loss=0.978 train_acc=66.9% val_acc=55.0% val_loss=1.264 (72s)
+  [Fold 5 | Ep  59/120] loss=0.964 train_acc=68.3% val_acc=55.0% val_loss=1.248 (53s)
+  [Fold 5 | Ep  60/120] loss=0.973 train_acc=68.2% val_acc=55.0% val_loss=1.223 (130s)
+  [Fold 5 | Ep  61/120] loss=0.952 train_acc=68.9% val_acc=55.0% val_loss=1.306 (104s)
+  [Fold 5 | Ep  62/120] loss=0.946 train_acc=69.8% val_acc=55.0% val_loss=1.244 (64s)
+  [Fold 5 | Ep  63/120] loss=0.940 train_acc=71.7% val_acc=65.0% val_loss=1.314 (74s)
+  [Fold 5 | Ep  64/120] loss=0.953 train_acc=70.0% val_acc=55.0% val_loss=1.324 (56s)
+  [Fold 5 | Ep  65/120] loss=0.936 train_acc=70.2% val_acc=55.0% val_loss=1.308 (62s)
+  [Fold 5 | Ep  66/120] loss=0.916 train_acc=75.0% val_acc=50.0% val_loss=1.284 (75s)
+  [Fold 5 | Ep  67/120] loss=0.914 train_acc=73.2% val_acc=45.0% val_loss=1.376 (77s)
+  [Fold 5 | Ep  68/120] loss=0.909 train_acc=75.4% val_acc=55.0% val_loss=1.291 (123s)
+  [Fold 5 | Ep  69/120] loss=0.904 train_acc=75.2% val_acc=60.0% val_loss=1.323 (60s)
+  [Fold 5 | Ep  70/120] loss=0.907 train_acc=74.5% val_acc=55.0% val_loss=1.280 (69s)
+  [Fold 5 | Ep  71/120] loss=0.893 train_acc=76.2% val_acc=55.0% val_loss=1.275 (85s)
+  [Fold 5 | Ep  72/120] loss=0.887 train_acc=75.8% val_acc=55.0% val_loss=1.302 (56s)
+  [Fold 5 | Ep  73/120] loss=0.881 train_acc=76.9% val_acc=55.0% val_loss=1.371 (62s)
+  [Fold 5 | Ep  74/120] loss=0.867 train_acc=77.5% val_acc=55.0% val_loss=1.329 (92s)
+  [Fold 5 | Ep  75/120] loss=0.899 train_acc=74.5% val_acc=50.0% val_loss=1.300 (59s)
+  [Fold 5 | Ep  76/120] loss=0.860 train_acc=77.5% val_acc=50.0% val_loss=1.358 (69s)
+  [Fold 5 | Ep  77/120] loss=0.857 train_acc=78.8% val_acc=50.0% val_loss=1.354 (173s)
+  [Fold 5 | Ep  78/120] loss=0.841 train_acc=78.8% val_acc=50.0% val_loss=1.340 (111s)
+  [Fold 5 | Ep  79/120] loss=0.838 train_acc=79.0% val_acc=50.0% val_loss=1.370 (98s)
+  [Fold 5 | Ep  80/120] loss=0.836 train_acc=78.6% val_acc=50.0% val_loss=1.325 (52s)
+  [Fold 5 | Ep  81/120] loss=0.830 train_acc=79.0% val_acc=55.0% val_loss=1.367 (124s)
+  [Fold 5 | Ep  82/120] loss=0.840 train_acc=78.4% val_acc=55.0% val_loss=1.394 (66s)
+  [Fold 5 | Ep  83/120] loss=0.847 train_acc=79.3% val_acc=50.0% val_loss=1.364 (66s)
+  [Fold 5 | Ep  84/120] loss=0.817 train_acc=81.0% val_acc=45.0% val_loss=1.333 (71s)
+  [Fold 5 | Ep  85/120] loss=0.807 train_acc=81.4% val_acc=60.0% val_loss=1.348 (63s)
+  [Fold 5 | Ep  86/120] loss=0.818 train_acc=78.4% val_acc=50.0% val_loss=1.359 (117s)
+  [Fold 5 | Ep  87/120] loss=0.792 train_acc=82.9% val_acc=45.0% val_loss=1.341 (111s)
+  [Fold 5 | Ep  88/120] loss=0.795 train_acc=82.7% val_acc=55.0% val_loss=1.365 (149s)
+  [Fold 5 | Ep  89/120] loss=0.805 train_acc=82.7% val_acc=50.0% val_loss=1.367 (75s)
+  [Fold 5 | Ep  90/120] loss=0.790 train_acc=83.2% val_acc=55.0% val_loss=1.341 (64s)
+  Early stopping at epoch 90 (val_loss hasn't improved for 30 epochs)
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:          epoch ▁▁▁▂▂▂▂▂▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇████
+wandb:             lr ██████████▇▇▇▇▇▆▆▆▅▅▄▄▄▄▃▃▃▃▃▃▂▂▂▂▂▂▁▁▁▁
+wandb:      train/acc ▁▁▁▂▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇██
+wandb: train/cls_loss ███▇▇▇▇▆▆▆▅▅▅▅▄▄▄▄▄▄▃▃▃▃▃▃▃▃▂▂▂▂▂▂▂▁▁▁▁▁
+wandb:     train/loss ████▇▇▇▆▆▆▆▅▅▅▅▄▄▄▄▃▃▃▃▃▃▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁
+wandb: train/reg_loss ▆▃▅▅▃▄▄▃▅▂▄▃▆▃▄▆▁▁▅▃▅▄█▅▅▇█▅▅▄▄▆▃▅▅▃▆▇▆▅
+wandb:        val/acc ▁▁▁▂▂▂▂▃▃▄▅██████████▇█▆▇█████▇█████▇▆▇█
+wandb:       val/loss ███▇▇▇▇▆▆▆▅▅▄▂▂▃▂▂▃▃▂▃▄▃▂▃▁▂▃▂▂▂▂▃▃▃▃▃▃▃
+wandb: 
+wandb: Run summary:
+wandb:   best_val_acc 0.65
+wandb:          epoch 90
+wandb:             lr 2e-05
+wandb:      train/acc 0.8324
+wandb: train/cls_loss 0.75683
+wandb:     train/loss 0.7898
+wandb: train/reg_loss 0.32972
+wandb:        val/acc 0.55
+wandb:       val/loss 1.34103
+wandb: 
+wandb: 🚀 View run full_v3_p30_fold5 at: https://wandb.ai/athena_1224-ucla/cardiac-ode/runs/uuvqw4ho
+wandb: ⭐️ View project at: https://wandb.ai/athena_1224-ucla/cardiac-ode
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260422_185518-uuvqw4ho/logs
+  Best val acc: 65.0%
+
+============================================================
+  K-Fold CV Final Results
+============================================================
+  Overall accuracy: 67.0%  (67/100)
+
+  Per-class accuracy:
+    NOR   : 30.0%  (20 patients)
+    DCM   : 65.0%  (20 patients)
+    HCM   : 70.0%  (20 patients)
+    MINF  : 85.0%  (20 patients)
+    RV    : 85.0%  (20 patients)
+
+  Confusion matrix (rows=true, cols=pred):
+         NOR    DCM    HCM   MINF     RV
+  NOR  :     6      0      5      3      6
+  DCM  :     0     13      1      6      0
+  HCM  :     1      0     14      3      2
+  MINF :     0      2      0     17      1
+  RV   :     0      0      0      3     17
+============================================================
+
+Results saved to results_full_v3_p30.json

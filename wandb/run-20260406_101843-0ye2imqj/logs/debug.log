@@ -1,0 +1,19 @@
+2026-04-06 10:18:43,936 INFO    MainThread:3195157 [wandb_setup.py:_flush():81] Current SDK version is 0.25.1
+2026-04-06 10:18:43,936 INFO    MainThread:3195157 [wandb_setup.py:_flush():81] Configure stats pid to 3195157
+2026-04-06 10:18:43,936 INFO    MainThread:3195157 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-06 10:18:43,937 INFO    MainThread:3195157 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /home/amo/CINEMRI/wandb/run-20260406_101843-0ye2imqj/logs/debug.log
+2026-04-06 10:18:43,937 INFO    MainThread:3195157 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /home/amo/CINEMRI/wandb/run-20260406_101843-0ye2imqj/logs/debug-internal.log
+2026-04-06 10:18:43,937 INFO    MainThread:3195157 [wandb_init.py:init():844] calling init triggers
+2026-04-06 10:18:43,937 INFO    MainThread:3195157 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'march9_dir': '/home/amo/CINEMRI/data/ACDC/March9Data', 'training_dir': '/home/amo/CINEMRI/data/ACDC/training', 'n_patients': 100, 'epochs': 100, 'batch_size': 8, 'lr': 0.0001, 'patience': 25, 'log_every': 5, 'cv': 'kfold', 'n_splits': 5, 'ablation': 'no_graph', 'checkpoint_dir': 'checkpoints', 'results_file': 'results_ablation_no_graph.json', 'wandb_project': 'cardiac-ode', 'wandb_run_name': 'ablation_no_graph', '_wandb': {}}
+2026-04-06 10:18:43,937 INFO    MainThread:3195157 [wandb_init.py:init():892] starting backend
+2026-04-06 10:18:44,152 INFO    MainThread:3195157 [wandb_init.py:init():895] sending inform_init request
+2026-04-06 10:18:44,158 INFO    MainThread:3195157 [wandb_init.py:init():903] backend started and connected
+2026-04-06 10:18:44,177 INFO    MainThread:3195157 [wandb_init.py:init():973] updated telemetry
+2026-04-06 10:18:44,184 INFO    MainThread:3195157 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-04-06 10:18:45,025 INFO    MainThread:3195157 [wandb_init.py:init():1042] starting run threads in backend
+2026-04-06 10:18:45,152 INFO    MainThread:3195157 [wandb_run.py:_console_start():2524] atexit reg
+2026-04-06 10:18:45,153 INFO    MainThread:3195157 [wandb_run.py:_redirect():2373] redirect: wrap_raw
+2026-04-06 10:18:45,153 INFO    MainThread:3195157 [wandb_run.py:_redirect():2442] Wrapping output streams.
+2026-04-06 10:18:45,153 INFO    MainThread:3195157 [wandb_run.py:_redirect():2465] Redirects installed.
+2026-04-06 10:18:45,157 INFO    MainThread:3195157 [wandb_init.py:init():1082] run started, returning control to user process

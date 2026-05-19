@@ -1,0 +1,21 @@
+2026-04-22 18:18:56,101 INFO    MainThread:2974240 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /home/amo/CINEMRI/src/ablation/wandb/run-20260422_181856-gh9sh0t5/logs/debug.log
+2026-04-22 18:18:56,101 INFO    MainThread:2974240 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /home/amo/CINEMRI/src/ablation/wandb/run-20260422_181856-gh9sh0t5/logs/debug-internal.log
+2026-04-22 18:18:56,101 INFO    MainThread:2974240 [wandb_init.py:init():844] calling init triggers
+2026-04-22 18:18:56,101 INFO    MainThread:2974240 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'march9_dir': '/home/amo/CINEMRI/data/ACDC/March9Data', 'training_dir': '/home/amo/CINEMRI/data/ACDC/training', 'n_patients': 100, 'epochs': 120, 'batch_size': 8, 'lr': 0.0001, 'patience': 30, 'freeze_reg_epochs': 20, 'n_splits': 5, 'wandb_project': 'cardiac-ode', 'results_file': 'results_abl_no_graph.json', 'resume': False, 'condition': 'no_graph', '_wandb': {}}
+2026-04-22 18:18:56,101 INFO    MainThread:2974240 [wandb_init.py:init():892] starting backend
+2026-04-22 18:18:56,101 INFO    MainThread:2974240 [wandb_init.py:init():895] sending inform_init request
+2026-04-22 18:18:56,104 INFO    MainThread:2974240 [wandb_init.py:init():903] backend started and connected
+2026-04-22 18:18:56,109 INFO    MainThread:2974240 [wandb_init.py:init():973] updated telemetry
+2026-04-22 18:18:56,117 INFO    MainThread:2974240 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-04-22 18:18:58,030 INFO    MainThread:2974240 [wandb_init.py:init():1042] starting run threads in backend
+2026-04-22 18:18:58,135 INFO    MainThread:2974240 [wandb_run.py:_console_start():2524] atexit reg
+2026-04-22 18:18:58,135 INFO    MainThread:2974240 [wandb_run.py:_redirect():2373] redirect: wrap_raw
+2026-04-22 18:18:58,135 INFO    MainThread:2974240 [wandb_run.py:_redirect():2442] Wrapping output streams.
+2026-04-22 18:18:58,135 INFO    MainThread:2974240 [wandb_run.py:_redirect():2465] Redirects installed.
+2026-04-22 18:18:58,137 INFO    MainThread:2974240 [wandb_init.py:init():1082] run started, returning control to user process
+2026-04-22 20:02:14,572 INFO    MainThread:2974240 [wandb_run.py:_finish():2291] finishing run athena_1224-ucla/cardiac-ode/gh9sh0t5
+2026-04-22 20:02:14,573 INFO    MainThread:2974240 [wandb_run.py:_atexit_cleanup():2490] got exitcode: 0
+2026-04-22 20:02:14,573 INFO    MainThread:2974240 [wandb_run.py:_restore():2472] restore
+2026-04-22 20:02:14,573 INFO    MainThread:2974240 [wandb_run.py:_restore():2478] restore done
+2026-04-22 20:02:16,254 INFO    MainThread:2974240 [wandb_run.py:_footer_sync_info():3868] logging synced files

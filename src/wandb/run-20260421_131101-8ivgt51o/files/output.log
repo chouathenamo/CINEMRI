@@ -1,0 +1,2 @@
+    [Fold 5 | Ep   1/120] train_acc=22.5%  val_acc=20.0%  val_loss=1.666  (59s)
+    [Fold 5 | Ep   2/120] train_acc=20.5%  val_acc=20.0%  val_loss=1.674  (56s)

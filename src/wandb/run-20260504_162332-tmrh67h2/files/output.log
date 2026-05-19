@@ -1,0 +1,5 @@
+  [Fold 1 | Ep   1/120] loss=0.122 train_acc=76.6% val_acc=80.0% bal_acc=50.0% NOR=0.0% DIS=100.0% pat=0/30 (18s)
+  [Fold 1 | Ep   2/120] loss=0.104 train_acc=78.1% val_acc=80.0% bal_acc=50.0% NOR=0.0% DIS=100.0% pat=0/30 (20s)
+  [Fold 1 | Ep   3/120] loss=0.090 train_acc=76.3% val_acc=80.0% bal_acc=50.0% NOR=0.0% DIS=100.0% pat=1/30 (16s)
+  [Fold 1 | Ep   4/120] loss=0.075 train_acc=75.7% val_acc=80.0% bal_acc=50.0% NOR=0.0% DIS=100.0% pat=2/30 (19s)
+  [Fold 1 | Ep   5/120] loss=0.066 train_acc=75.1% val_acc=80.0% bal_acc=50.0% NOR=0.0% DIS=100.0% pat=3/30 (16s)

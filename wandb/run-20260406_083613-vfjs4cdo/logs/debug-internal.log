@@ -1,0 +1,18 @@
+{"time":"2026-04-06T08:36:13.613992742-07:00","level":"INFO","msg":"wandb-core"}
+{"time":"2026-04-06T08:36:13.615542971-07:00","level":"INFO","msg":"stream: starting","core version":"0.25.1"}
+{"time":"2026-04-06T08:36:44.284383287-07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2026-04-06T08:37:13.95837827-07:00","level":"INFO","msg":"stream: created new stream","id":"vfjs4cdo"}
+{"time":"2026-04-06T08:37:13.958548305-07:00","level":"INFO","msg":"handler: started"}
+{"time":"2026-04-06T08:37:13.958733633-07:00","level":"INFO","msg":"stream: started"}
+{"time":"2026-04-06T08:37:13.958786329-07:00","level":"INFO","msg":"sender: started"}
+{"time":"2026-04-06T08:37:13.958775569-07:00","level":"INFO","msg":"writer: started","stream_id":"vfjs4cdo"}
+{"time":"2026-04-06T08:37:15.789576322-07:00","level":"ERROR","msg":"api: HTTP error","status":401,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2026-04-06T08:37:15.789803136-07:00","level":"ERROR","msg":"runupserter: failed to init run","error":"returned error 401: {\"data\":{\"upsertBucket\":null},\"errors\":[{\"message\":\"user is not logged in\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}]}"}
+{"time":"2026-04-06T08:37:15.809915242-07:00","level":"INFO","msg":"stream: closing"}
+{"time":"2026-04-06T08:37:15.811019832-07:00","level":"ERROR","msg":"sender: uploadConfigFile: runhandle: run not yet initialized"}
+{"time":"2026-04-06T08:37:15.811348009-07:00","level":"ERROR","msg":"runfiles: runhandle: run not yet initialized"}
+{"time":"2026-04-06T08:37:15.811531104-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-04-06T08:37:15.811568552-07:00","level":"INFO","msg":"handler: closed"}
+{"time":"2026-04-06T08:37:15.811624036-07:00","level":"INFO","msg":"sender: closed"}
+{"time":"2026-04-06T08:37:15.811636065-07:00","level":"INFO","msg":"stream: closed"}
+{"time":"2026-04-06T08:37:15.813270823-07:00","level":"ERROR","msg":"stream: runURL: runhandle: run not yet initialized"}
